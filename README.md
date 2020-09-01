@@ -1,5 +1,7 @@
 # Programyata tasks and lessons
 
+####[Полезные ссылки здесь](LINKS.md)
+
 ## 1. task1 - алгоритм бинароного поиска
 
 ### Дано: 
