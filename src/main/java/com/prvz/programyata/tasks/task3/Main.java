@@ -1,27 +1,21 @@
-package com.prvz.programyata.tasks.task1;
+package com.prvz.programyata.tasks.task3;
 
 import com.prvz.programyata.tasks.utils.IOUtils;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Main {
 
     public static void main(String[] args) {
 
         String arrayIn = IOUtils.readLineFromConsole(
-            "Enter a sorted array to search and press \"Enter\" key.\nNote numbers must be divided by ','"
-        );
-        String findIn = IOUtils.readLineFromConsole(
-            "Enter the desired number and press \"Enter\" key"
+            "Enter a integer array to search and press \"Enter\" key.\nNote numbers must be divided by ','"
         );
 
         // Проверяем, что введенный массив не null и не пустой
         if (arrayIn == null || arrayIn.isBlank()) {
             System.err.println("There's no data in array");
-            return;
-        }
-
-        // Проверяем, что введенное число не null и не пустое
-        if (findIn == null || findIn.isBlank()) {
-            System.err.println("Desired number is empty");
             return;
         }
 
@@ -37,32 +31,22 @@ public class Main {
 
         // Best way to array transform: Arrays.stream(split).mapToInt(Integer::valueOf).toArray();
         // Создаем массив int'ов, куда будем перегонять массив строк
-        int[] arrayTransformed = new int[split.length];
+        Integer[] arrayTransformed = new Integer[split.length];
         for (int i = 0; i < split.length; i++) {
             try {
                 // Парсим строку в число
-                arrayTransformed[i] = Integer.parseInt(split[i]);
+                arrayTransformed[i] = Integer.valueOf(split[i]);
             } catch (NumberFormatException nfe) {
                 System.err.println("Illegal character in array: " + split[i]);
                 return;
             }
         }
 
-        int findTransformed;
-        try {
-            findTransformed = Integer.parseInt(findIn);
-        } catch (NumberFormatException nfe) {
-            System.err.println("Illegal desired value: " + findIn);
-            return;
-        }
+        Integer[] result = new QuickSortJava().quickSortRecursive(arrayTransformed, QuickSortJava.Sort.ASC);
 
-        BinarySearchJava binSearch = new BinarySearchJava();
+        System.out.println("Sorted array:");
+        System.out.println(Arrays.stream(result).map(String::valueOf).collect(Collectors.joining(",")));
 
-        boolean foundBinary = binSearch.search(arrayTransformed, findTransformed);
-
-        // Сокращенная форма if. Почитать про тернарный оператор
-        String resultMessage = foundBinary ? "WAS FOUND" : "WAS NOT FOUND";
-
-        System.out.println("Number: " + findIn + " " + resultMessage + " in the entered array");
     }
+
 }
