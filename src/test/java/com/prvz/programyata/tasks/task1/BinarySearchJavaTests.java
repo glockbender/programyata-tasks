@@ -2,7 +2,6 @@ package com.prvz.programyata.tasks.task1;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import com.prvz.programyata.tasks.task1.BinarySearchJava;
 
 public class BinarySearchJavaTests {
 
@@ -27,6 +26,7 @@ public class BinarySearchJavaTests {
 
     @Test
     public void binarySearchShouldNotFoundAllElements() {
+
         for (int i = 100; i < 200; i++) {
             Assertions.assertFalse(search.search(hundredElementsFromZeroAsc, i));
         }

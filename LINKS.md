@@ -17,6 +17,7 @@
 2. [SOLID принципы](https://www.youtube.com/playlist?list=PLmqFxxywkatQNWLG1IZYUhKoQrnuZHqaK)
 3. [Архитектура Web Приложений](https://www.youtube.com/watch?v=9mZmc6a0tmM).
 *Объяснение базовой архитектуры web приложений, с описанием базовых технологий*
+4. [Как (и для чего) использовать систему контроля версий git](https://www.youtube.com/watch?v=wvqiGJu3YmQ&list=PLsQAG1V_t58Cd5Anx_wJ7-KIzCA8SPOa1)
 
 
 ## Походы к обучению, самодисциплина:
