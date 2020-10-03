@@ -11,18 +11,31 @@
 1. [Документация по Kotlin на русском языке](https://kotlinlang.ru/)
 2. [Изучение языка Kotlin для начинающих](https://www.youtube.com/watch?v=DjDL5cjLYwE&list=PL0lO_mIqDDFUP-pEWtX7mrnmoP4Hxxp6y)
 
+## Необходимые в работе технологии
+#### GIT
+1. [Шпаргалка Git от Github.com](https://github.github.com/training-kit/downloads/ru/github-git-cheat-sheet/)
+2. [Как (и для чего) использовать систему контроля версий git](https://www.youtube.com/watch?v=wvqiGJu3YmQ&list=PLsQAG1V_t58Cd5Anx_wJ7-KIzCA8SPOa1)
+
+#### HTTP
+1. [HTTP протокол: понимать web лучше](https://www.youtube.com/watch?v=C_QZtajkDf0)
+*Оч достойное базовое объяснение работы http протокола (код на Java, но понимать не обязательно)*
+2. [Что делает браузер, чтобы загрузить Веб-страницу?](https://www.youtube.com/watch?v=ylG8_d9Qk1U)
+*Неплохо объяснен базовый процесс работы в браузере*
+
+## Полезные в работе технологии:
+1. [Markdown - пиши README без боли](https://www.youtube.com/watch?v=FFBTGdEMrQ4)
+*Важный скилл в работе, уметь вести документацию. Данный урок научит основам Markdown разметки*
 
 ## Общая Теория разработки:
-1. [Шпаргалка Git от Github.com](https://github.github.com/training-kit/downloads/ru/github-git-cheat-sheet/)
-2. [SOLID принципы](https://www.youtube.com/playlist?list=PLmqFxxywkatQNWLG1IZYUhKoQrnuZHqaK)
-3. [Архитектура Web Приложений](https://www.youtube.com/watch?v=9mZmc6a0tmM).
+1. [SOLID принципы](https://www.youtube.com/playlist?list=PLmqFxxywkatQNWLG1IZYUhKoQrnuZHqaK)
+2. [Архитектура Web Приложений](https://www.youtube.com/watch?v=9mZmc6a0tmM).
 *Объяснение базовой архитектуры web приложений, с описанием базовых технологий*
-4. [Как (и для чего) использовать систему контроля версий git](https://www.youtube.com/watch?v=wvqiGJu3YmQ&list=PLsQAG1V_t58Cd5Anx_wJ7-KIzCA8SPOa1)
-
 
 ## Походы к обучению, самодисциплина:
 1. [6 способов выучиться на программиста](https://www.youtube.com/watch?v=rSQsU_nxtKw)
 2. [7 ошибок в обучении на программиста](https://www.youtube.com/watch?v=oH2RJNILkLs)
+3. [Сколько нужно учиться на джуна?](https://www.youtube.com/watch?v=CjZAuJnA7pA)
+*Интересная инфа. Особенно после 10:00*
 
 ## Сообщества в Telegram
 
