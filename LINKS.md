@@ -37,6 +37,9 @@
 3. [Сколько нужно учиться на джуна?](https://www.youtube.com/watch?v=CjZAuJnA7pA)
 *Интересная инфа. Особенно после 10:00*
 
+## Intellij IDEA:
+1. [Горячие клавиши Idea/PyCharm/RubyMine/GoLand (Hotkeys)](https://www.youtube.com/watch?v=lArM1o0SoMw)
+
 ## Сообщества в Telegram
 
 1. Kotlin:
