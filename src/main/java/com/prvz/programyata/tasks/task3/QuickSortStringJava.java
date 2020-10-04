@@ -17,7 +17,6 @@ public class QuickSortStringJava {
             int pivotIdx = ThreadLocalRandom.current().nextInt(length);
             String pivotElement = array[pivotIdx];
             int maxSideArrayLength = length - 1;
-            Class<?> componentType = array.getClass().getComponentType();
             String[] left = new String[maxSideArrayLength];
             String[] right = new String[maxSideArrayLength];
             int leftIdx = 0;
