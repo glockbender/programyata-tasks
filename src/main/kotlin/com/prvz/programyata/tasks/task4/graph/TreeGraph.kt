@@ -42,6 +42,7 @@ class TreeGraph<T> constructor(
     override fun listValue(): List<T> = connections.keys.toList()
 
     override fun hasPath(from: T, to: T): Boolean {
+        println("Algorithm start\n-----------------------------------------")
         if (!connections.containsKey(from)) {
             throw IllegalArgumentException("'From' node was not registered")
         }
@@ -55,6 +56,8 @@ class TreeGraph<T> constructor(
         val searchQueue: Queue<T> = LinkedList(connections[from]!!)
 
         val alreadyVisited: MutableSet<T> = mutableSetOf(from)
+
+        println("Search starts from value: $from. Try to found path to: $to")
 
         try {
             while (searchQueue.isNotEmpty()) {
@@ -71,8 +74,10 @@ class TreeGraph<T> constructor(
             }
             return false
         } finally {
+            println("Last stage. Clear all unused lists")
             searchQueue.clear()
             alreadyVisited.clear()
+            println("Algorithm End\n-----------------------------------------")
         }
     }
 }
