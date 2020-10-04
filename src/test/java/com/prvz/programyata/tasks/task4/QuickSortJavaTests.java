@@ -1,5 +1,6 @@
-package com.prvz.programyata.tasks.task3;
+package com.prvz.programyata.tasks.task4;
 
+import com.prvz.programyata.tasks.task3.QuickSortJava;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
