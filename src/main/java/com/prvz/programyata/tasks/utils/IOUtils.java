@@ -20,7 +20,8 @@ public class IOUtils {
      * @return результат чтения из консоли
      */
     public static String readLineFromConsole(String message) {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println(message);
             return reader.readLine();
         } catch (IOException e) {
@@ -89,7 +90,7 @@ public class IOUtils {
             return null;
         }
 
-        T[] resultArray = (T[]) Array.newInstance(typeClass.getComponentType(), split.length);
+        T[] resultArray = (T[]) Array.newInstance(typeClass, split.length);
 
         for (int i = 0; i < split.length; i++) {
             try {
