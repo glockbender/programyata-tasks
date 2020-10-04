@@ -8,6 +8,13 @@ public class IOUtils {
 
     private IOUtils() {}
 
+    /**
+     * Данный метод выводит в консоль сообщение из параметра message и затем ожидает введение строки в консоли.
+     * По нажатию Enter ввод считается завершенным.
+     * Прочитанная из консоли строка выводится в виде результата выполнения метода
+     * @param message сообщение, выводящееся перед чтением данных из консоли
+     * @return результат чтения из консоли
+     */
     public static String readLineFromConsole(String message) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println(message);
