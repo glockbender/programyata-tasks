@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap
 /**
  * Supports only one root element. Elements cannot be looped by itself.
  */
-class TreeGraph<T> constructor(
+class SimpleGraph<T> constructor(
     rootValue: T
 ) : Graph<T> {
 

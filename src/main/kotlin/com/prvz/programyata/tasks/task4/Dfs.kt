@@ -1,10 +1,10 @@
 package com.prvz.programyata.tasks.task4
 
-import com.prvz.programyata.tasks.task4.graph.TreeGraph
+import com.prvz.programyata.tasks.task4.graph.SimpleGraph
 
 fun main() {
 
-    val graph = TreeGraph(11)
+    val graph = SimpleGraph(11)
     graph.addNodeTo(21,11)
     graph.addNodeTo(22,11)
     graph.addNodeTo(23,11)
@@ -15,6 +15,7 @@ fun main() {
     graph.addNodeTo(41,34)
     graph.addNodeTo(33,41)
 
-    graph.hasPath(11, 33)
+    println("Try to found path from root(11) element to 33 element")
+    println("Graph path searching result: ${graph.hasPath(11, 33)}")
 
 }
