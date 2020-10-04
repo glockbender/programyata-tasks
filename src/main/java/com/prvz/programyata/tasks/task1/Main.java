@@ -41,7 +41,10 @@ public class Main {
         for (int i = 0; i < split.length; i++) {
             try {
                 // Парсим строку в число
-                arrayTransformed[i] = Integer.parseInt(split[i]);
+                // Обязательно вызываем trim на строке,
+                // т.к. при разбиении строки на числа, после или до запятых могли появиться лишние пробелы
+                // trim удаляет все пробелы перед первым и после последнего символа
+                arrayTransformed[i] = Integer.parseInt(split[i].trim());
             } catch (NumberFormatException nfe) {
                 System.err.println("Illegal character in array: " + split[i]);
                 return;
