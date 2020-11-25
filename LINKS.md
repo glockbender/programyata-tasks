@@ -12,6 +12,11 @@
 2. [Изучение языка Kotlin для начинающих](https://www.youtube.com/watch?v=DjDL5cjLYwE&list=PL0lO_mIqDDFUP-pEWtX7mrnmoP4Hxxp6y)
 
 ## Необходимые в работе технологии
+
+#### Базы данных/SQL
+1. [SQL-ex](https://www.sql-ex.ru/?Lang=0) - один из лучших сайтов для изучения sql
+2. [Бесплатный курс по SQL на Stepik](https://stepik.org/course/63054/promo) 
+
 #### GIT
 1. [Шпаргалка Git от Github.com](https://github.github.com/training-kit/downloads/ru/github-git-cheat-sheet/)
 2. [Как (и для чего) использовать систему контроля версий git](https://www.youtube.com/watch?v=wvqiGJu3YmQ&list=PLsQAG1V_t58Cd5Anx_wJ7-KIzCA8SPOa1)
@@ -30,6 +35,7 @@
 1. [SOLID принципы](https://www.youtube.com/playlist?list=PLmqFxxywkatQNWLG1IZYUhKoQrnuZHqaK)
 2. [Архитектура Web Приложений](https://www.youtube.com/watch?v=9mZmc6a0tmM).
 *Объяснение базовой архитектуры web приложений, с описанием базовых технологий*
+3. [Топ 8 лучших ресурсов для практики программирования](https://habr.com/ru/post/414009/)
 
 ## Походы к обучению, самодисциплина:
 1. [6 способов выучиться на программиста](https://www.youtube.com/watch?v=rSQsU_nxtKw)
@@ -60,3 +66,6 @@
     - [Публикуем вакансии с удаленной работой](https://t.me/remotelist)
     - [pro.JVM Jobs](https://t.me/jvmjobs)
     - [Вакансии и проекты на удаленку для it специалистов](https://t.me/Remoteit)
+    
+## Сообщества в VK
+1. [Java program](https://vk.com/java_program)    
