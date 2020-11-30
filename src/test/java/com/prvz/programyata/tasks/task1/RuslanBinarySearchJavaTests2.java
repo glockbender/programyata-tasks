@@ -3,7 +3,7 @@ package com.prvz.programyata.tasks.task1;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class BinarySearchJavaTests2 {
+public class RuslanBinarySearchJavaTests2 {
 
     @Test
     public void test() {
