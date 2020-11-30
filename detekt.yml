@@ -393,7 +393,7 @@ style:
     maxJumpCount: 1
   MagicNumber:
     excludes: "**/test/**,**/*Test.kt,**/*Spec.kt"
-    active: true
+    active: false
     ignoreNumbers: '-1,0,1,2'
     ignoreHashCodeFunction: true
     ignorePropertyDeclaration: false

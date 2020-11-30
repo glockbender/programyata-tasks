@@ -9,5 +9,4 @@ interface Graph<T> {
     fun listValue(): List<T>
 
     fun hasPath(from: T, to: T): Boolean
-
 }
