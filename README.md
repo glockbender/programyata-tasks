@@ -1,5 +1,5 @@
 # Programyata tasks and lessons
 
-### [Полезные ссылки здесь](LINKS.md)
+### [Полезные ссылки здесь](docs/LINKS.md)
  
 
