@@ -42,6 +42,9 @@
 2. [7 ошибок в обучении на программиста](https://www.youtube.com/watch?v=oH2RJNILkLs)
 3. [Сколько нужно учиться на джуна?](https://www.youtube.com/watch?v=CjZAuJnA7pA)
 *Интересная инфа. Особенно после 10:00*
+   
+## Поиск работы
+1. [Обратное собеседование](https://github.com/kix/reverse-interview/blob/master/README.md)
 
 ## Intellij IDEA:
 1. [Горячие клавиши Idea/PyCharm/RubyMine/GoLand (Hotkeys)](https://www.youtube.com/watch?v=lArM1o0SoMw)
