@@ -4,7 +4,7 @@ public class SelectionSort {
     public void sort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int min = i;
-            for (int j = min; j < array.length; j++) {
+            for (int j = min+1; j < array.length; j++) {
                 if (array[min] > array[j]) {
                     min = j;
                 }

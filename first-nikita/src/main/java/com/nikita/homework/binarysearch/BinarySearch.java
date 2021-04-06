@@ -1,7 +1,7 @@
 package com.nikita.homework.binarysearch;
 
 public class BinarySearch {
-    public static void Binary(int[] array, int item, int first, int last) {
+    public static void binary(int[] array, int item, int first, int last) {
         int index = -1;
         while (first <= last) {
             int mid = (first + last) / 2;
@@ -9,7 +9,7 @@ public class BinarySearch {
                 first = mid + 1;
             } else if (array[mid] > item) {
                 last = mid - 1;
-            } else if (array[mid] == item) {
+            } else {
                 index = mid;
                 break;
             }
