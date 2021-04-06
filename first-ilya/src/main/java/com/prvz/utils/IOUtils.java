@@ -20,8 +20,7 @@ public class IOUtils {
      * @return результат чтения из консоли
      */
     public static String readLineFromConsole(String message) {
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println(message);
             return reader.readLine();
         } catch (IOException e) {
@@ -95,7 +94,7 @@ public class IOUtils {
         for (int i = 0; i < split.length; i++) {
             try {
                 resultArray[i] = toTypeFunction.apply(split[i].trim());
-            } catch (Throwable expected) {
+            } catch (Exception expected) {
                 System.err.println("Cannot convert String to " +
                     typeClass.getSimpleName() +
                     " object. Value: " + split[i]

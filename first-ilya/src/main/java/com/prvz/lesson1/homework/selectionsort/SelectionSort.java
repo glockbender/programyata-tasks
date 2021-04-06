@@ -1,7 +1,5 @@
 package com.prvz.lesson1.homework.selectionsort;
 
-import com.prvz.utils.ArrayUtils;
-
 import java.util.Arrays;
 
 public class SelectionSort {
@@ -18,7 +16,9 @@ public class SelectionSort {
                     minIdx = j;
                 }
 
-                ArrayUtils.swap(i, minIdx, array);
+                int temp = array[i];
+                array[i] = array[minIdx];
+                array[minIdx] = temp;
 
             }
 
