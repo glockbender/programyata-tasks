@@ -20,7 +20,7 @@ public class IOUtils {
      * @return результат чтения из консоли
      */
     public static String readLineFromConsole(String message) {
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println(message);
             return reader.readLine();
         } catch (IOException e) {

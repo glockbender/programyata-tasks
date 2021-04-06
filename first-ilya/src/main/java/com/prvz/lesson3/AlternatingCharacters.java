@@ -27,7 +27,7 @@ public class AlternatingCharacters {
             int next = toChars[i + 1];
 
             if (current == next)
-                result ++;
+                result++;
 
         }
 
