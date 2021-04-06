@@ -35,6 +35,11 @@ public class Rle {
 
     }
 
+    // EXTRA TASK
+    public String unzip(String zipped) {
+
+    }
+
     public static void main(String[] args) {
 
         String unzipped = "AABBBBCCCCCCDDDEELVCNNNN";
