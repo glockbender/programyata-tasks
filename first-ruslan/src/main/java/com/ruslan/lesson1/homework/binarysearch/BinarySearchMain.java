@@ -1,6 +1,6 @@
 package com.ruslan.lesson1.homework.binarysearch;
 
-public class BinarySearchMain extends BinarySearch {
+public class BinarySearchMain {
 
     public static void main(String[] args) {
 

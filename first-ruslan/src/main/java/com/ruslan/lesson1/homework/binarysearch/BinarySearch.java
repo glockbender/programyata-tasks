@@ -3,7 +3,7 @@ package com.ruslan.lesson1.homework.binarysearch;
 public class BinarySearch {
 
     public static int search(int[] array, int item, int low, int high) {
-        int index = Integer.MAX_VALUE;
+        int index = -1;
 
         while (low <= high) {
 
