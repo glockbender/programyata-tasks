@@ -1,7 +1,7 @@
 ### 1.2 Анализ сложности алгоритмов, еще немного практикуемся в пулл реквестах
 
-- [ ] Toolbar в IDEA ~ 5m
-- [ ] Добавляем KeyPromoter в качестве плагина для хоткеев ~ 5m
+- [x] Toolbar в IDEA ~ 5m
+- [x] Добавляем KeyPromoter в качестве плагина для хоткеев ~ 5m
 - [ ] Разбор задач на дом (Упомянуть про утилитарный метод и его +/-)
 - [ ] Оценка сложности алгоритмов на примере из предыдущего занятия, разбор статьи из ДЗ ~ 30m 
   [Наглядно поиграться с графиками](http://www.fooplot.com/#W3sidHlwZSI6MCwiZXEiOiJ4KmxvZyh4KStsb2coeCkiLCJjb2xvciI6IiMwMDAwMDAifSx7InR5cGUiOjEwMDAsIndpbmRvdyI6WyItNDE2IiwiNDE2IiwiLTI1NiIsIjI1NiJdfV0-)
