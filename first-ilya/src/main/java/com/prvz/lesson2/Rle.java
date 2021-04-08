@@ -62,8 +62,8 @@ public class Rle {
     }
 
     // EXTRA TASK
-    public String unzip(String zipped) {
-
+   public String unzip(String zipped) {
+  
         char[] chars = zipped.toCharArray();
 
         StringBuilder result = new StringBuilder();
