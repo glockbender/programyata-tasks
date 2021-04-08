@@ -1,7 +1,7 @@
 package com.ruslan.lesson2.homework.rle;
 
 public class Chernovik {
-    static void gen_compressed_str(String str)
+    static void genCompressedStr(String str)
     {
         int n = str.length();
         for (int i = 0; i < n; i++) {
@@ -27,7 +27,7 @@ public class Chernovik {
     public static void main(String[] args)
     {
         String str = "wwwwaaadexxxxxxywww";
-        gen_compressed_str(str);
+        genCompressedStr(str);
     }
 
 }
