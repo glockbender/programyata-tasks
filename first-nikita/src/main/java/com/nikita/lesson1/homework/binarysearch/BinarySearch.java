@@ -1,4 +1,4 @@
-package com.nikita.homework.binarysearch;
+package com.nikita.lesson1.homework.binarysearch;
 
 public class BinarySearch {
     public static void binary(int[] array, int item, int first, int last) {

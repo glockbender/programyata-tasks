@@ -4,6 +4,13 @@ import java.util.Arrays;
 
 public class SelectionSort {
 
+    public static void main(String[] args) {
+        int[] array = new int[]{6, 5, 7, 8, 3, 1, 2, 0, 4};
+        new SelectionSort().sort(array);
+        System.out.println(Arrays.toString(array));
+
+    }
+
     public void sort(int[] array) {
 
         for (int i = 0; i < array.length; i++) {
@@ -23,13 +30,6 @@ public class SelectionSort {
             }
 
         }
-
-    }
-
-    public static void main(String[] args) {
-        int[] array = new int[] { 6,5,7,8,3,1,2,0,4 };
-        new SelectionSort().sort(array);
-        System.out.println(Arrays.toString(array));
 
     }
 

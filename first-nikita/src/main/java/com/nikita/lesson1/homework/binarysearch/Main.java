@@ -1,4 +1,4 @@
-package com.nikita.homework.binarysearch;
+package com.nikita.lesson1.homework.binarysearch;
 
 import java.util.Arrays;
 import java.util.Scanner;

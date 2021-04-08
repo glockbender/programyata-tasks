@@ -5,15 +5,15 @@ package com.prvz.lesson1.homework.binarysearch;
  * Лучшее время сортировки массива - O(N * logN),
  * а лучше время поиска в упорядоченном - O(logN),
  * при этом лучшее время поиска для простого прохода по элементам в неупорядоченном массиве - O(N).
- *
+ * <p>
  * Следовательно, для операции сортировки и поиска по упорядоченному массиву
  * итоговая сложность - O(N * logN + logN) = O(N * logN) -- показать на графике
- *
+ * <p>
  * Данная сложность по определению выше, чем O(N)
- *
+ * <p>
  * Поэтому для эффективного использования данной цепочки алгоритмов
  * подразумевается предварительная сортировка данных и частый поиск во время работы приложения
- *
+ * <p>
  * дан массив 10 эл-тов, ищем число 4
  * {0,1,2,3,4,5,6,7,8,9} - 4 => 4
  * Выбираем опорный элемент как половину разницы между наибольшим и наименьшим индексом,
@@ -37,6 +37,15 @@ package com.prvz.lesson1.homework.binarysearch;
  * PROFIT!!!
  */
 public class BinarySearch {
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        BinarySearch search = new BinarySearch();
+
+        System.out.println(search.search(2, arr));
+        System.out.println(search.search(7, arr));
+        System.out.println(search.search(11, arr));
+    }
 
     public int search(int element, int[] from) {
 
@@ -65,15 +74,6 @@ public class BinarySearch {
             return highIdx;
 
         return -1;
-    }
-
-    public static void main(String[] args) {
-        int[] arr = new int[] {0,1,2,3,4,5,6,7,8,9};
-        BinarySearch search = new BinarySearch();
-
-        System.out.println(search.search(2, arr));
-        System.out.println(search.search(7, arr));
-        System.out.println(search.search(11, arr));
     }
 
 }
