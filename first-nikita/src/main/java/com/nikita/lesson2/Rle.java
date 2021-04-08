@@ -1,4 +1,4 @@
-package com.prvz.lesson2;
+package com.nikita.lesson2;
 
 public class Rle {
 
@@ -7,44 +7,36 @@ public class Rle {
      A2B4C6D3E2LVCN4
      */
     public String zip(String unzipped) {
-
-        String result = "";
-
+        if (unzipped.length() == 1) {
+            return unzipped;
+        }
+        StringBuilder result = new StringBuilder();
         char[] chars = unzipped.toCharArray();
-
-        for (int i = 0; i < chars.length; i++) {
-
-            int counter = 0;
-
+        int counter = 1;
+        for (int i = 0; i < chars.length - 1; i++) {
             // проверка последнего символа
-
             char element = chars[i];
             char nextElement = chars[i + 1];
-
             if (element == nextElement) {
                 counter++;
             } else {
-                String add = "" + element + counter;
-                result = result + add;
-                counter = 0;
-
+                result.append(element);
+                if (counter > 1) {
+                    result.append(counter);
+                }
+                counter = 1;
             }
         }
-
-        return result;
-
+        result.append(chars[chars.length - 1]);
+        if (counter > 1) {
+            result.append(counter);
+        }
+        return result.toString();
     }
-
-    // EXTRA TASK
-   // public String unzip(String zipped) {
-
-   // }
 
     public static void main(String[] args) {
 
         String unzipped = "AABBBBCCCCCCDDDEELVCNNNN";
-
         System.out.println(new Rle().zip(unzipped));
     }
-
 }
