@@ -1,4 +1,4 @@
-package com.nikita.homework.selectionsort;
+package com.nikita.lesson1.homework.selectionsort;
 
 public class SelectionSort {
     public void sort(int[] array) {
