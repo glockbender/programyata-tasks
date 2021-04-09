@@ -2,49 +2,115 @@ package com.ruslan.lesson2.homework.rle;
 
 public class Rle {
 
-    /*
-    AABBBBCCCCCCDDDEELVCNNNN
-    A2B4C6D3E2LVCN4
-    */
     public String zip(String unzipped) {
-
-        String result = "";
-
 
         char[] chars = unzipped.toCharArray();
 
-        for (int i = 0; i < chars.length - 1; i++) {
+        StringBuilder result = new StringBuilder();
 
-            int counter = 1;
+        char pivot = chars[0];
 
-            char element = chars[i];
+        int counter = 1;
 
-            char nextElement = chars[i + 1];
+        for (int i = 1; i < chars.length; i++) {
 
+            char current = chars[i];
 
-            if (element == nextElement && i < chars.length - 1) {
+            if (current == pivot) {
 
                 counter++;
-                
 
-            } else if (counter > 1) {
-                String add = element + Integer.toString(counter);
-                result = result + add;
-                counter = 1;
+            } else {
+                result.append(pivot);
+                if (counter > 1) {
+                    result.append(counter);
+                    counter = 1;
+                }
+
+            }
+            pivot = current;
+
+            if (i == chars.length - 1) {
+
+                result.append(pivot);
+                if (counter > 1) {
+                    result.append(counter);
+                    counter = 1;
+                }
+            }
+
+        }
+
+        return result.toString();
+
+    }
+
+    public String unzip(String zipped) {
+
+        char[] chars = zipped.toCharArray();
+
+        StringBuilder result = new StringBuilder();
+
+        StringBuilder multiplier = new StringBuilder();
+
+        char pivot = chars[0];
+
+        for (int i = 1; i < chars.length; i++) {
+
+            char current = chars[i];
+
+
+
+            if (Character.isDigit(chars[i])) {
+
+                while (Character.isDigit(chars[i])) {
+
+                    multiplier.append(chars[i]);
+                    i++;
+
+
+                    if (i == chars.length)
+                        break;
+
+                }
+
+                int k = Integer.parseInt(multiplier.toString());
+
+                for (int j = 0; j < k - 1; j++) {
+
+                    result.append(pivot);
+
+                }
+
+                multiplier.delete(0, multiplier.length());
+
+
+            } result.append(pivot);
+
+            if (i < chars.length) {
+
+                pivot = chars[i];
+
             }
 
 
         }
 
-        return result;
+        if (Character.isLetter(chars[chars.length-1])) {
+            result.append(chars[chars.length-1]);
+        }
+
+        return result.toString();
 
     }
 
     public static void main(String[] args) {
 
-        String unzipped = "AABBBBCCCCCCDDDEELVCNNNN";
+        String unzipped = "AABBBBCCCCCCCCCCDDDEELVCNNNN";
+        String zipped = new Rle().zip(unzipped);
 
         System.out.println(new Rle().zip(unzipped));
+        System.out.println(new Rle().unzip(zipped));
     }
 
 }
