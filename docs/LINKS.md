@@ -1,13 +1,15 @@
 # Полезные ссылки
 
 ## Лекции по языкам программирования:
+
 #### Java:
 1. [Программирование на Java, весна 2020, Тагир Валеев](https://www.youtube.com/watch?v=ygEo5LHHXSI&list=PLlb7e2G7aSpRZSRZxANkvpYC82BXUzCTY).
 *Отличный курс от крайне известного и именитого разработчика в мире java. Лекции довольно длинные, но при этом прекрасно объясняют суть языка*
 2. [Уроки Java Для Начинающих](https://www.youtube.com/watch?v=igYgzTW8Ois&list=PLatpBlqT9NV7EAuzH0cn91VtV7Bmr4NE_&index=6)
 *Неплохой курс, довольно короткие видео*
-3.[Хороший сайт для изучения синтаксиса] (http://proglang.su/java)
-
+3. [Хороший сайт для изучения синтаксиса](http://proglang.su/java)
+*Очень хорошо структурированы темы*
+   
 #### Kotlin:
 1. [Документация по Kotlin на русском языке](https://kotlinlang.ru/)
 2. [Изучение языка Kotlin для начинающих](https://www.youtube.com/watch?v=DjDL5cjLYwE&list=PL0lO_mIqDDFUP-pEWtX7mrnmoP4Hxxp6y)
@@ -37,6 +39,7 @@
 2. [Архитектура Web Приложений](https://www.youtube.com/watch?v=9mZmc6a0tmM).
 *Объяснение базовой архитектуры web приложений, с описанием базовых технологий*
 3. [Топ 8 лучших ресурсов для практики программирования](https://habr.com/ru/post/414009/)
+4. [7 вещей которые должен уметь каждый разработчик](https://www.youtube.com/watch?v=p8n4r17k-kk)
 
 ## Походы к обучению, самодисциплина:
 1. [6 способов выучиться на программиста](https://www.youtube.com/watch?v=rSQsU_nxtKw)
