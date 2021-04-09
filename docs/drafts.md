@@ -22,6 +22,8 @@ _Web приложение с админкой (статичная страниц
 
 #### Тема Generics
 
+#### Задача "URL-checker"
+
 #### Задача: "Round-robin"
 
 #### Задача: "Cache" (hash map, concurrent hash map, tree map)
