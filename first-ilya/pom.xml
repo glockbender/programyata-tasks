@@ -83,10 +83,10 @@
 <!--                <groupId>com.github.ozsie</groupId>-->
 <!--                <artifactId>detekt-maven-plugin</artifactId>-->
 <!--                <version>1.16.0</version>-->
-<!--                <appProperties>-->
+<!--                <configuration>-->
 <!--                    <autoCorrect>true</autoCorrect>-->
 <!--                    <config>${project.basedir}/../detekt.yml</config>-->
-<!--                </appProperties>-->
+<!--                </configuration>-->
 <!--                <dependencies>-->
 <!--                    <dependency>-->
 <!--                        <groupId>io.gitlab.arturbosch.detekt</groupId>-->
@@ -101,9 +101,9 @@
 <!--                        <goals>-->
 <!--                            <goal>check</goal>-->
 <!--                        </goals>-->
-<!--                        <appProperties>-->
+<!--                        <configuration>-->
 <!--                            <config>${project.basedir}/../detekt.yml</config>-->
-<!--                        </appProperties>-->
+<!--                        </configuration>-->
 <!--                    </execution>-->
 <!--                </executions>-->
 <!--            </plugin>-->
