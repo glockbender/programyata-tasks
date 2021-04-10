@@ -4,20 +4,15 @@ public class SelectionSort {
     public void sort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int min = i;
-            for (int j = min+1; j < array.length; j++) {
+            for (int j = min + 1; j < array.length; j++) {
                 if (array[min] > array[j]) {
                     min = j;
                 }
             }
-            swap(array, i, min);
+
+            int temp = array[i];
+            array[i] = array[min];
+            array[min] = temp;
         }
     }
-
-    public void swap(int[] array, int from, int last) {
-        int temp = array[from];
-        array[from] = array[last];
-        array[last] = temp;
-    }
-
-
 }
