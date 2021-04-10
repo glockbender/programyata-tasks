@@ -31,3 +31,5 @@ _Web приложение с админкой (статичная страниц
 #### Набор задач: [Mega Project List](https://github.com/karan/Projects)
 
 #### Тема: Строки(concat, indexOf)
+
+#### Задача: [FizzBuzz](../first-ilya/src/main/java/com/prvz/draft/FizzBuzz.java)
