@@ -12,6 +12,7 @@
         <module>first-ilya</module>
         <module>first-nikita</module>
         <module>first-ruslan</module>
+        <module>url-checker</module>
     </modules>
 
     <properties>
