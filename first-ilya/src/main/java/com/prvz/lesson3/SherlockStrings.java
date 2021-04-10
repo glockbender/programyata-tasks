@@ -12,7 +12,7 @@ public class SherlockStrings {
 
         int length = s.length();
 
-        if (length < 2) {
+        if (length < 3) {
             return YES;
         }
 
