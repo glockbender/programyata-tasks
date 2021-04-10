@@ -1,4 +1,4 @@
-package com.prvz.lesson3;
+package com.prvz.lesson2_5;
 
 public class AlternatingCharacters {
 

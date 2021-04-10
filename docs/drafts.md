@@ -28,3 +28,6 @@ _Web приложение с админкой (статичная страниц
 
 #### Задача: "Cache" (hash map, concurrent hash map, tree map)
 
+#### Набор задач: [Mega Project List](https://github.com/karan/Projects)
+
+#### Тема: Строки(concat, indexOf)

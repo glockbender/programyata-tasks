@@ -1,4 +1,6 @@
-package com.prvz.lesson3;
+package com.prvz.lesson2_5;
+
+import com.prvz.lesson3.StringUtils;
 
 public class Rle {
 
@@ -9,6 +11,10 @@ public class Rle {
      A2B4C6D3E2LVCN4
      */
     public String zip(String unzipped) {
+
+        if (unzipped.length() <= 1) {
+            return unzipped;
+        }
 
         char[] chars = unzipped.toCharArray();
 
@@ -107,8 +113,17 @@ public class Rle {
 
     public static void main(String[] args) {
         String testString = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+
+        String untrimmed = "    FFFFFFFFFFFGASDASDAGHFGJHFGJSDF    ";
+
+
+
         System.out.println(testString.length());
         Rle rle = new Rle();
+
+        rle.zip(untrimmed.trim());
+
+
         String zipped = rle.zip(testString);
         String unzipped = rle.unzip(zipped);
 
