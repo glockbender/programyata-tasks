@@ -1,0 +1,4 @@
+CREATE TABLE urls(
+    id UUID PRIMARY KEY,
+    url TEXT NOT NULL
+);

@@ -8,7 +8,9 @@ public class AddUrlRequest {
     public final String url;
 
     @JsonCreator
-    public AddUrlRequest(@JsonProperty String url) {
+    public AddUrlRequest(
+        @JsonProperty("url") String url
+    ) {
         this.url = url;
     }
 }

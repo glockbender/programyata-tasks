@@ -1,19 +1,10 @@
 package com.prvz.urlchecker;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-import org.flywaydb.core.Flyway;
-import org.flywaydb.core.api.Location;
-import org.flywaydb.core.api.configuration.Configuration;
-import org.flywaydb.core.api.configuration.FluentConfiguration;
-import org.flywaydb.core.api.output.MigrateResult;
-import org.postgresql.ds.PGPoolingDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import spark.Request;
 import spark.Spark;
-
-import javax.sql.DataSource;
 
 public class Application {
 
@@ -27,36 +18,47 @@ public class Application {
         });
         Spark.port(8080);
 
-        AppProperties appProperties = AppProperties.build();
-
-        HikariConfig dbConfig = new HikariConfig();
-        dbConfig.setJdbcUrl(appProperties.db.url);
-        dbConfig.setUsername(appProperties.db.user);
-        dbConfig.setPassword(appProperties.db.password);
-        dbConfig.setDriverClassName("org.postgresql.Driver");
-
-        HikariDataSource dataSource = new HikariDataSource(dbConfig);
-
-        FluentConfiguration flywayConfig = new FluentConfiguration()
-            .dataSource(dataSource)
-            .locations(new Location("db/migration/V1__init.sql"));
-
-        MigrateResult migrateResult = new Flyway(flywayConfig).migrate();
+        AppConfig appConfig = AppConfig.buildConfig();
 
         Spark.init();
 
         Spark.awaitInitialization();
 
-        Spark.path("/api/v1/urls", () -> {
+        Spark.path("/api/v1", () -> {
 
-            Spark.post("/", "application/json", (req, res) -> {
-                AddUrlRequest request = OBJECT_MAPPER.readValue(req.body(), AddUrlRequest.class);
-                AddUrlResponse response = new AddUrlResponse("", "");
-                return OBJECT_MAPPER.writeValueAsString(response);
+            Spark.before("/*", (req, res) ->
+                logger.trace("Received api call ->\n" + requestToString(req)));
+
+            Spark.path("/urls", () -> {
+
+                Spark.before("", (req, res) ->
+                    logger.info("/urls call -> \n" + requestToString(req)));
+
+                Spark.post("", "application/json", (req, res) -> {
+                    AddUrlRequest request = OBJECT_MAPPER.readValue(req.body(), AddUrlRequest.class);
+                    AddUrlResponse response = new AddUrlResponse("", "");
+                    return OBJECT_MAPPER.writeValueAsString(response);
+                });
             });
-
         });
 
+    }
+
+    public static String requestToString(Request request) {
+
+        StringBuilder result = new StringBuilder()
+            .append("Scheme: ").append(request.scheme()).append(", ")
+            .append("Method: ").append(request.requestMethod()).append(", ")
+            .append("Path: ").append(request.pathInfo());
+
+        if (!"GET".equals(request.requestMethod())) {
+            result.append("\n")
+                .append("Body: ")
+                .append(request.body());
+        }
+
+        result.append(".");
+        return result.toString();
     }
 
 }
