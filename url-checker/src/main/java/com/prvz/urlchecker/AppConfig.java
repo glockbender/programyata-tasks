@@ -2,10 +2,18 @@ package com.prvz.urlchecker;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.flywaydb.core.Flyway;
+import org.flywaydb.core.api.Location;
+import org.flywaydb.core.api.configuration.FluentConfiguration;
+import org.flywaydb.core.api.output.MigrateResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
 
 public class AppConfig {
+
+    private static final Logger logger = LoggerFactory.getLogger(AppConfig.class);
 
     private AppProperties appProperties;
     private DataSource dataSource;
@@ -25,11 +33,13 @@ public class AppConfig {
 
         HikariDataSource dataSource = new HikariDataSource(dbConfig);
 
-//        FluentConfiguration flywayConfig = new FluentConfiguration()
-//            .dataSource(dataSource)
-//            .locations(new Location("db/migration"));
-//
-//        MigrateResult migrateResult = new Flyway(flywayConfig).migrate();
+        FluentConfiguration flywayConfig = new FluentConfiguration()
+            .dataSource(dataSource)
+            .locations(new Location("db/migration"));
+
+        MigrateResult migrateResult = new Flyway(flywayConfig).migrate();
+
+        logger.info("Migrate result: {}", migrateResult);
 
         AppConfig result = new AppConfig();
         result.appProperties = appProperties;

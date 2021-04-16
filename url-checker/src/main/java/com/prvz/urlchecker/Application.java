@@ -20,6 +20,8 @@ public class Application {
 
         AppConfig appConfig = AppConfig.buildConfig();
 
+        UrlsRepository repository = new UrlsRepository(appConfig.getDataSource());
+
         Spark.init();
 
         Spark.awaitInitialization();
@@ -36,7 +38,7 @@ public class Application {
 
                 Spark.post("", "application/json", (req, res) -> {
                     AddUrlRequest request = OBJECT_MAPPER.readValue(req.body(), AddUrlRequest.class);
-                    AddUrlResponse response = new AddUrlResponse("", "");
+                    AddUrlResponse response = repository.addUrl(request);
                     return OBJECT_MAPPER.writeValueAsString(response);
                 });
             });
