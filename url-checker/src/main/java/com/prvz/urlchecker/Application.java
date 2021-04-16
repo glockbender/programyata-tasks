@@ -22,6 +22,8 @@ public class Application {
 
         UrlsRepository repository = new UrlsRepository(appConfig.getDataSource());
 
+        UrlsChecker urlsChecker = new UrlsChecker(repository, appConfig.getAppProperties());
+
         Spark.init();
 
         Spark.awaitInitialization();
@@ -29,17 +31,18 @@ public class Application {
         Spark.path("/api/v1", () -> {
 
             Spark.before("/*", (req, res) ->
-                logger.trace("Received api call ->\n" + requestToString(req)));
+                logger.trace("Received api call ->\n {}", requestToString(req)));
 
             Spark.path("/urls", () -> {
 
                 Spark.before("", (req, res) ->
-                    logger.info("/urls call -> \n" + requestToString(req)));
+                    logger.info("/urls call -> \n {}", requestToString(req)));
 
                 Spark.post("", "application/json", (req, res) -> {
                     AddUrlRequest request = OBJECT_MAPPER.readValue(req.body(), AddUrlRequest.class);
-                    AddUrlResponse response = repository.addUrl(request);
-                    return OBJECT_MAPPER.writeValueAsString(response);
+                    repository.addUrl(request);
+                    res.status(200);
+                    return "";
                 });
             });
         });

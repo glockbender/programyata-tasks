@@ -2,7 +2,9 @@ POST http://localhost:8080/api/v1/urls
 Content-Type: application/json
 
 {
-    "url": "https://ya.ru"
+    "url": "https://ya.ru/a",
+    "periodMinutes": 1,
+    "startAt": "2021-04-16T18:34:33Z"
 }
 
 ###
