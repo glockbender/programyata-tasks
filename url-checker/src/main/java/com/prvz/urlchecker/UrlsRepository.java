@@ -9,15 +9,28 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.OffsetDateTime;
+import java.util.List;
 
 public class UrlsRepository {
 
+    public static final String INSERT_SQL = "INSERT INTO urls (url, periodMinutes, startAt) VALUES (?, ?, ?)";
+    public static final String SELECT_ALL_SQL = "SELECT * FROM urls";
     private static final Logger logger = LoggerFactory.getLogger(UrlsRepository.class);
-
     private final DataSource dataSource;
 
     public UrlsRepository(DataSource dataSource) {
         this.dataSource = dataSource;
+    }
+
+    public List<AddUrlResponse> findAll(int limit) {
+        try (
+            Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(SELECT_ALL_SQL);
+        ) {
+
+        } catch (SQLException sqlEx) {
+            return null;
+        }
     }
 
     public boolean addUrl(AddUrlRequest request) {
@@ -32,8 +45,7 @@ public class UrlsRepository {
 
         try (
             Connection connection = dataSource.getConnection();
-            PreparedStatement statement = connection.prepareStatement(
-                "INSERT INTO urls (url, periodMinutes, startAt) VALUES (?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement(INSERT_SQL);
         ) {
 
             int parameterIndex = 1;

@@ -1,13 +1,16 @@
 package com.prvz.urlchecker;
 
+import java.time.OffsetDateTime;
+
 public class AddUrlResponse {
 
     public final String url;
+    public final Integer periodMinutes;
+    public final OffsetDateTime startAt;
 
-    public final String message;
-
-    public AddUrlResponse(String url, String message) {
+    public AddUrlResponse(String url, Integer periodMinutes, OffsetDateTime startAt) {
         this.url = url;
-        this.message = message;
+        this.periodMinutes = periodMinutes;
+        this.startAt = startAt;
     }
 }
