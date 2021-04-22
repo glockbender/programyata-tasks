@@ -7,14 +7,17 @@ import javax.sql.DataSource;
 import java.net.URI;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class UrlsRepository {
 
     public static final String INSERT_SQL = "INSERT INTO urls (url, periodMinutes, startAt) VALUES (?, ?, ?)";
-    public static final String SELECT_ALL_SQL = "SELECT * FROM urls";
+    public static final String SELECT_ALL_SQL = "SELECT * FROM urls ORDER BY created_at DESC FETCH FIRST ? ROWS ONLY";
     private static final Logger logger = LoggerFactory.getLogger(UrlsRepository.class);
     private final DataSource dataSource;
 
@@ -22,11 +25,34 @@ public class UrlsRepository {
         this.dataSource = dataSource;
     }
 
-    public List<AddUrlResponse> findAll(int limit) {
+    public List<AddUrlResponse> findAllOrderedByCreatedAt(int limit) {
         try (
             Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(SELECT_ALL_SQL);
         ) {
+
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.getFetchSize() == 0) {
+                return Collections.emptyList();
+            }
+
+            List<AddUrlResponse> result = new ArrayList<>(limit);
+
+            while (rs.next()) {
+                int parameterIndex = 1;
+                String url = rs.getString(parameterIndex++);
+                Integer periodMinutes = rs.getInt(parameterIndex++);
+                OffsetDateTime startAt = rs.getObject(parameterIndex++, OffsetDateTime.class);
+                AddUrlResponse response = new AddUrlResponse(
+                    url,
+                    periodMinutes,
+                    startAt
+                );
+                result.add(response);
+            }
+
+            return result;
 
         } catch (SQLException sqlEx) {
             return null;

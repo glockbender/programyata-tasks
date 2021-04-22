@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import spark.Request;
 import spark.Spark;
 
+import java.util.List;
+
 public class Application {
 
     static final ObjectMapper OBJECT_MAPPER = new ObjectMapper().findAndRegisterModules();
@@ -43,6 +45,21 @@ public class Application {
                     repository.addUrl(request);
                     res.status(200);
                     return "";
+                });
+
+                Spark.get("", (req, res) -> {
+                    String limitString = req.queryParams("limit");
+                    int limit = 50;
+                    if (limitString != null) {
+                        try {
+                            limit = Integer.parseInt(limitString);
+                        } catch (NumberFormatException nfe) {
+                            logger.warn("Incorrect limit value: " + limitString, nfe);
+                        }
+                    }
+                    List<AddUrlResponse> result = repository.findAllOrderedByCreatedAt(limit);
+                    res.type("application/json");
+                    return OBJECT_MAPPER.writeValueAsString(result);
                 });
             });
         });
