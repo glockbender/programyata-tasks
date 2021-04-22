@@ -4,22 +4,24 @@ public class Hourglass {
 
     public static int hourglass(int[][] array) {
 
-        int sum1 = 0;
-        int sum2 = Integer.MIN_VALUE;
+
+        int resultSum = -65;
 
         for (int i = 0; i < 4; i++) {
 
             for (int j = 0; j < 4; j++) {
 
-                sum1 = array[i][j] + array[i][j + 1] + array[i][j + 2] + array[i + 1][j + 1] + array[i + 2][j] + array[i + 2][j + 1] + array[i + 2][j + 2];
-                if (sum1 > sum2) {
-                    sum2 = sum1;
+                int innerSum = 0;
+
+                innerSum = array[i][j] + array[i][j + 1] + array[i][j + 2] + array[i + 1][j + 1] + array[i + 2][j] + array[i + 2][j + 1] + array[i + 2][j + 2];
+                if (innerSum > resultSum) {
+                    resultSum = innerSum;
                 }
             }
 
         }
 
-        return sum2;
+        return resultSum;
 
     }
 
