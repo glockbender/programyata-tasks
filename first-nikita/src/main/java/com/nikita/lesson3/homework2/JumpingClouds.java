@@ -29,24 +29,7 @@ public class JumpingClouds {
         System.out.println(jumpingOnClouds(array2));
         int[] array3 = new int[]{0, 1, 0, 0, 1, 0, 1, 0, 0};
         System.out.println(jumpingOnClouds(array3));
-
     }
 }
-/*int count = 0;
-        for (int i = 0; i < array.length - 1; ) { //
 
-            if (i >= array.length - 2) {
-                count++;
-                break;
-            }
-            int afterNext = array[i + 2];
-            if (afterNext == 0) {
-                i = i + 2;
-                count++;
-            } else {
-                i = i + 1;
-                count++;
-            }
-        }
-        return count;*/
 
