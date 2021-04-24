@@ -4,6 +4,10 @@ public class SelectionSort {
 
     public static int[] sort(int[] array) {
 
+        if(array == null) {
+            return null;
+        }
+
         for (int i = 0; i < array.length; i++) {
             int min = array[i];
             int minIndex = i;
