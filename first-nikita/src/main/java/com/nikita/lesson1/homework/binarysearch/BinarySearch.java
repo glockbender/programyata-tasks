@@ -2,6 +2,9 @@ package com.nikita.lesson1.homework.binarysearch;
 
 public class BinarySearch {
     public static void binary(int[] array, int item, int first, int last) {
+        if( array==null){
+            return;
+        }
         int index = -1;
         while (first <= last) {
             int mid = (first + last) / 2;
