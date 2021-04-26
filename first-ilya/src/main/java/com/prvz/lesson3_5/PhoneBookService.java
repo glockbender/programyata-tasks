@@ -1,5 +1,8 @@
 package com.prvz.lesson3_5;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.Collection;
 
 public interface PhoneBookService {
@@ -9,7 +12,7 @@ public interface PhoneBookService {
      * @param name имя контакта
      * @return найденный контакт или null, если не найден
      */
-    PhoneBookContact findByName(String name);
+    PhoneBookContact findByName(@NotNull String name);
 
     /**
      * Найти контакт по телефону

@@ -1,5 +1,7 @@
 package com.prvz.lesson3_5;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -8,7 +10,7 @@ public class InmemoryPhoneBookService implements PhoneBookService {
     private Collection<PhoneBookContact> contactsStorage = new ArrayList<>();
 
     @Override
-    public PhoneBookContact findByName(String name) {
+    public PhoneBookContact findByName(@NotNull String name) {
 
         for (PhoneBookContact contact : contactsStorage) {
             if (contact.name.equals(name)) {
@@ -19,7 +21,7 @@ public class InmemoryPhoneBookService implements PhoneBookService {
     }
 
     @Override
-    public PhoneBookContact findByPhone(String phone) {
+    public PhoneBookContact findByPhone(@NotNull String phone) {
 
         for (PhoneBookContact contact : contactsStorage) {
             for (String innerPhone : contact.phones) {

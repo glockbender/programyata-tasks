@@ -1,16 +1,12 @@
 package com.prvz.lesson2_5;
 
-import com.prvz.lesson3.StringUtils;
-
 public class Rle {
 
-    //
-
-    /*
-     AABBBBCCCCCCDDDEELVCNNNN
-     A2B4C6D3E2LVCN4
-     */
     public String zip(String unzipped) {
+
+        if (unzipped == null || unzipped.isEmpty()) {
+            return "";
+        }
 
         if (unzipped.length() <= 1) {
             return unzipped;
@@ -49,13 +45,6 @@ public class Rle {
 
     }
 
-    /*
-     AB2C2
-     ABBCC
-
-     A2B4C6D3E2LVCN4
-     AABBBBCCCCCCDDDEELVCNNNN
-     */
     public String unzip(String zipped) {
 
         char[] chars = zipped.toCharArray();

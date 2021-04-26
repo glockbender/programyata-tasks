@@ -1,30 +1,38 @@
 package com.prvz.lesson1;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 // (3)(5)(4)
 //
 public class BubbleSort {
 
-    public void sort(int[] array) {
+    public void sort(@Nullable int[] array) {
+
+        if (array == null) {
+            return;
+        }
 
         for (int i = 0; i < array.length; i++) {
 
             for (int j = i + 1; j < array.length; j++) {
 
                 if (array[i] > array[j]) {
-                    swap(array, i, j);
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
                 }
 
             }
 
         }
-
     }
 
-    private void swap(int[] array, int from, int to) {
+    public static void main(String[] args) {
 
-        int temp = array[from];
-        array[from] = array[to];
-        array[to] = temp;
+        int[] arr = null;
+
+        new BubbleSort().sort(arr);
 
     }
 
