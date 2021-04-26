@@ -23,13 +23,14 @@ public class ArrayTestUtils {
 
     // 10..20 , length 11
     public static int[] generateRandom(int from, int to, int length) {
+        if (from > to) {
+            throw new IllegalArgumentException("'from must be less than 'to");
+        }
         Random random = new Random();
         int[] array = new int[length];
         for (int i = 0; i < array.length; i++) {
-
-
+            array[i] = random.nextInt(to - from + 1);
         }
-
+        return array;
     }
-
 }
