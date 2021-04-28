@@ -1,7 +1,7 @@
 package com.nikita.lesson3.homework;
 
 public class AlternatingCharacters {
-    static int alternatingCharacters(String s) {
+    public static int alternatingCharacters(String s) {
         if (s == null || s.isEmpty ()) {
             return 0;
 
