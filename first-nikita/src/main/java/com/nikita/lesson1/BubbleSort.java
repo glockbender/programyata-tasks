@@ -14,10 +14,10 @@ public class BubbleSort  {
             }
     }
 
-    private static void swap(int[] array, int from, int last) {
+    private static void swap(int[] array, int from, int to) {
         int temp = array[from];
-        array[from] = array[last];
-        array[last] = temp;
+        array[from] = array[to];
+        array[to] = temp;
 
     }
 }

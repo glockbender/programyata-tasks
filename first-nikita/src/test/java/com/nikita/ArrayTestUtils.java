@@ -21,7 +21,6 @@ public class ArrayTestUtils {
         return array;
     }
 
-
     // 10..20 , length 11
     public static int[] generateRandom(int from, int to, int length) {
         if (from > to) {
