@@ -4,17 +4,15 @@ public class BinarySearchMain {
 
     public static void main(String[] args) {
 
-        int[] array = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        int[] array = new int[]{1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 5, 6, 6, 7, 7, 7, 7, 8, 8};
 
-        int item = 10;
+        int item = 8;
 
         int index = new BinarySearch().search(array, item, 0, array.length - 1);
 
-        if (index < 0) {
-            System.out.println("Out of range");
-        } else if (index > array.length - 1) {
-            System.out.println("Out of range");
-        } else {
+        if (index == -1) {
+            System.out.println("Element is not found");
+        }  else {
             System.out.println("Index of item are " + index);
         }
 

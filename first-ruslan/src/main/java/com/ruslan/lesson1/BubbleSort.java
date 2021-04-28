@@ -2,10 +2,11 @@ package com.ruslan.lesson1;
 
 public class BubbleSort {
 
-
-
-
     public void sort(int[] array) {
+
+        if(array == null) {
+            return;
+        }
 
         for (int i = 0; i < array.length; i++) {
 
