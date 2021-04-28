@@ -18,7 +18,7 @@ public class Main {
         int item = scan.nextInt();
         first = 0;
         last = num - 1;
-        BinarySearch.binary(array, item, first, last);
+        BinarySearch.binary(array, item);
     }
 }
 

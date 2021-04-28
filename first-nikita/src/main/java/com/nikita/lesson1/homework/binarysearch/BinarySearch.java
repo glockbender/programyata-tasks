@@ -1,10 +1,12 @@
 package com.nikita.lesson1.homework.binarysearch;
 
 public class BinarySearch {
-    public static void binary(int[] array, int item, int first, int last) {
-        if( array==null){
-            return;
+    public static int binary(int[] array, int item) {
+        if (array == null) {
+            return 0;
         }
+        int first = 0;
+        int last = array.length - 1;
         int index = -1;
         while (first <= last) {
             int mid = (first + last) / 2;
@@ -22,6 +24,7 @@ public class BinarySearch {
         } else {
             System.out.println(" Нужный элемент в массиве не найден! ");
         }
+        return -1;
 
     }
 
