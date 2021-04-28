@@ -30,7 +30,7 @@ public class ArrayTestUtils {
         Random random = new Random();
         int[] array = new int[length];
         for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(to - from + 1);
+            array[i] = from + random.nextInt(to - from + 1);
         }
         return array;
     }

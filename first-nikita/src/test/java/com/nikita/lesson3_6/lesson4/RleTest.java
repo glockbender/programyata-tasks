@@ -5,19 +5,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RleTest {
+    Rle rle= new Rle();
     @Test
-    public void Rle_does_not_work_with_null() {
+    public void Rle_does_not_work_with_null_or_empty_line() {
         String line = null;
-        String rleLine = new Rle().zip(line);
-        Assertions.assertEquals(line ,rleLine);
+        String rleLine = rle.zip(line);
+
+        String newLine="";
+        String rleNewLine= rle.zip(newLine);
+
     }
-//        @Test
-//        public void Rle_сorrect_work_with_zero(){
-//        String line= "";
-//        String rleLine= new  Rle().zip(line);
-//
-//
-//
-//
-//    }
 }

@@ -10,9 +10,9 @@ class BubbleSortTest {
 
     @Test
     public void BubbleSorting_works_correctly() {
-        int[] array =ArrayTestUtils.generateRandom(1,9,10);
-        int[] correctArray=ArrayTestUtils.generate(1,9);
-        bsort.sort(array);
+        int[] array = new int[]{1, 4, 2, 3, 6, 5};
+        int[] correctArray = new int[]{1, 2, 3, 4, 5, 6};
+        new BubbleSort().sort(array);
         Assertions.assertArrayEquals(correctArray, array);
 
 
