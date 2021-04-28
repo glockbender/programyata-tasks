@@ -8,9 +8,9 @@ public class SelectionSortMain {
 
         int[] array = new int[]{22, 21, 11, 7, 5, 10, 15, 4};
 
-        int[] sortedArray = new SelectionSort().sort(array);
+        SelectionSort.sort(array);
 
-        System.out.println(Arrays.toString(sortedArray));
+        System.out.println(Arrays.toString(array));
 
     }
 }

@@ -4,11 +4,11 @@ public class BinarySearch {
 
     public int search(int[] array, int item, int low, int high) {
 
-        if (array == null) {
-            return 0;
-        }
-
         int index = -1;
+
+        if (array == null) {
+            return index;
+        }
 
         while (low <= high) {
 
