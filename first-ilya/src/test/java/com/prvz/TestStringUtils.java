@@ -4,6 +4,20 @@ import java.util.Random;
 
 public class TestStringUtils {
 
+    public static String generateRandom(int length) {
+
+        Random random = new Random();
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < length; i++) {
+            char randomChar = (char) ('a' + random.nextInt(26));
+            sb.append(randomChar);
+        }
+
+        return sb.toString();
+    }
+
     /**
      * Генерирует строку с периодически повторяющимися символами
      *
