@@ -2,7 +2,8 @@ package com.nikita;
 
 import java.util.Random;
 
-public class StringTestUtils {
+public class
+StringTestUtils {
 
 
     public static String generateStringRandom(int length) {
