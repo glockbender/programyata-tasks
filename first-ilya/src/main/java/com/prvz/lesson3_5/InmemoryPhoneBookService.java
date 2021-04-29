@@ -1,6 +1,7 @@
 package com.prvz.lesson3_5;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,6 +11,8 @@ public class InmemoryPhoneBookService implements PhoneBookService {
     private Collection<PhoneBookContact> contactsStorage = new ArrayList<>();
 
     @Override
+    @Nullable
+    // O(n) -> O(1) -> O(logN)
     public PhoneBookContact findByName(@NotNull String name) {
 
         for (PhoneBookContact contact : contactsStorage) {
@@ -21,6 +24,8 @@ public class InmemoryPhoneBookService implements PhoneBookService {
     }
 
     @Override
+    @Nullable
+    // O(n^2) -> O(n*logn) -> O(1)
     public PhoneBookContact findByPhone(@NotNull String phone) {
 
         for (PhoneBookContact contact : contactsStorage) {
