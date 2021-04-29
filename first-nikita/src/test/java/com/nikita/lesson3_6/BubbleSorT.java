@@ -5,6 +5,8 @@ import com.nikita.lesson1.BubbleSort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 class BubbleSortTest {
     BubbleSort bsort=new BubbleSort();
 
@@ -15,11 +17,16 @@ class BubbleSortTest {
         new BubbleSort().sort(array);
         Assertions.assertArrayEquals(correctArray, array);
 
-
         correctArray = ArrayTestUtils.generate(1, 100);
         array=ArrayTestUtils.copyAndShuffle(correctArray);
         bsort.sort(array);
         Assertions.assertArrayEquals(correctArray, array);
+
+        int [] arrayBubleSort= ArrayTestUtils.generateRandom(-50,50,20);
+        int [] arraySort=ArrayTestUtils.copyAndShuffle(arrayBubleSort);
+        bsort.sort(arrayBubleSort);
+        Arrays.sort(arraySort);
+        Assertions.assertArrayEquals(arrayBubleSort,arraySort);
 
     }
 

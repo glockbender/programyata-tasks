@@ -3,9 +3,11 @@ package com.nikita;
 import java.util.Random;
 
 public class StringTestUtils {
-    public static String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 
     public static String generateStringRandom(int length) {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
         if (length <= 0) {
             throw new IllegalArgumentException("string length must be greater than zero");
         }

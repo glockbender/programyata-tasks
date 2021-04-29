@@ -5,6 +5,8 @@ import com.nikita.lesson1.homework.selectionsort.SelectionSort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 public class SelectionSortTest {
     SelectionSort sSort= new SelectionSort();
     @Test
@@ -18,6 +20,12 @@ public class SelectionSortTest {
         int[] newCorrectArray=ArrayTestUtils.copyAndShuffle(newArray);
         sSort.sort(newCorrectArray);
         Assertions.assertArrayEquals(newArray,newCorrectArray);
+
+        int [] selArray= ArrayTestUtils.generateRandom(0,99,50);
+        int [] sortArray= ArrayTestUtils.copyAndShuffle(selArray);
+        sSort.sort(selArray);
+        Arrays.sort(sortArray);
+        Assertions.assertArrayEquals(selArray,sortArray);
     }
 
     @Test
