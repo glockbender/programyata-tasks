@@ -13,14 +13,25 @@ public class SumOfArrayElementsTest {
 
         int[] ar = null;
         int nullable = SumOfArrayElements.simpleArraySum(ar);
-        Assertions.assertEquals(0, nullable);
+        Assertions.assertEquals(-1, nullable);
+
+    }
+
+    @Test
+    public void SumOfArrayElements_must_not_works_with_arrays_with_zero_length(){
+
+        int[] arr = new int[0];
+        int result = SumOfArrayElements.simpleArraySum(arr);
+        Assertions.assertEquals(-1,result);
 
     }
 
     @Test
     public void SumOfArrayElements_must_works_correctly() {
 
-        GenerateArrayUtils.sortedArray(0, 10);
+        int[] arr = GenerateArrayUtils.sortedArray(-10, 10);
+        int sumOfArray = SumOfArrayElements.simpleArraySum(arr);
+        Assertions.assertEquals(0, sumOfArray);
 
     }
 

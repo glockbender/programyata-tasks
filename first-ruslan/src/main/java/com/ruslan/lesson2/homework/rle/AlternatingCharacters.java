@@ -4,7 +4,7 @@ public class AlternatingCharacters {
 
     public static int alternatingCharacters(String s) {
 
-        if (s==null) {
+        if (s==null || s.isEmpty()) {
             return -1;
         }
 

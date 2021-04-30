@@ -10,29 +10,27 @@ public class AlternatingCharactersTest {
 
 
     @Test
-    public void AlternatingCharacters_must_not_work_with_null() {
+    public void AlternatingCharacters_must_not_work_with_null_and_empty() {
 
         String s = null;
         int input = AlternatingCharacters.alternatingCharacters(s);
         Assertions.assertEquals(-1, input);
+
+        String f = "";
+        int inputEmpty = AlternatingCharacters.alternatingCharacters(f);
+        Assertions.assertEquals(-1, inputEmpty);
 
     }
 
     @Test
     public void AlternatingCharacters_must_work_correctly() {
 
-
-        String s = GenerateStringUtils.genStrRandomRepeatableChars(1, 2, 10);
-        int input = AlternatingCharacters.alternatingCharacters(s);
-        String zippedS = Rle.zip(s);
-        char[] arrZippedS = zippedS.toCharArray();
-        int expected = 0;
-        for (int i = 0; i < arrZippedS.length; i++) {
-            if (Character.isDigit(arrZippedS[i])) {
-                expected = expected + Character.getNumericValue(arrZippedS[i]) - 1;
-            }
-        }
-        Assertions.assertEquals(expected, input);
+        String caseOne = "AABBABCDDDRTT";
+        String caseTwo = "ABCCCBA";
+        int inputOne = AlternatingCharacters.alternatingCharacters(caseOne);
+        int inputTwo = AlternatingCharacters.alternatingCharacters(caseTwo);
+        Assertions.assertEquals(5,inputOne);
+        Assertions.assertEquals(2,inputTwo);
 
     }
 

@@ -4,12 +4,10 @@ public class Rle {
 
     public static String zip(String unzipped) {
 
-        if (unzipped == null) {
-            return null;
-        }
-        if (unzipped.equals("")) {
+        if (unzipped == null || unzipped.isEmpty()) {
             return "";
         }
+
 
         char[] chars = unzipped.toCharArray();
 
@@ -54,10 +52,7 @@ public class Rle {
 
     public static String unzip(String zipped) {
 
-        if (zipped == null) {
-            return null;
-        }
-        if (zipped.equals("")) {
+        if (zipped == null || zipped.isEmpty()) {
             return "";
         }
 

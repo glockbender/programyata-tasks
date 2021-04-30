@@ -4,8 +4,8 @@ public class SumOfArrayElements {
 
     public static int simpleArraySum(int[] ar) {
 
-        if(ar == null) {
-            return 0;
+        if(ar == null || ar.length == 0) {
+            return -1;
         }
 
         int sum = 0;

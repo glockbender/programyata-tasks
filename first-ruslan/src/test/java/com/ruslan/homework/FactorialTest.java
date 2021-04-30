@@ -19,21 +19,9 @@ public class FactorialTest {
     @Test
     public void Factorial_must_works_correctly() {
 
-        int[] array = GenerateArrayUtils.sortedArray(0, 10);
-
-        int expected_i = 1;
-
+        int[] array = new int[] {1,1,2,6,24,120,720,5040,40320,362880,3628800};
         for (int i = 0; i < array.length; i++) {
-
-            int n = array[i];
-            int result_i = Factorial.factorial(n);
-            if (n != 0) {
-                expected_i = expected_i * n;
-            } else
-                Assertions.assertEquals(expected_i, result_i);
-
+            Assertions.assertEquals(array[i], Factorial.factorial(i));
         }
-
     }
-
 }
