@@ -3,7 +3,7 @@ package com.nikita.lesson1.homework.binarysearch;
 public class BinarySearch {
     public static int binary(int[] array, int item) {
         if (array == null) {
-            return 0;
+            return -1;
         }
         int first = 0;
         int last = array.length - 1;
@@ -19,13 +19,7 @@ public class BinarySearch {
                 break;
             }
         }
-        if (first <= last) {
-            System.out.println(item + " является " + ++index + " элементом в массиве");
-        } else {
-            System.out.println(" Нужный элемент в массиве не найден! ");
-        }
-        return -1;
-
+        return index;
     }
 
 }

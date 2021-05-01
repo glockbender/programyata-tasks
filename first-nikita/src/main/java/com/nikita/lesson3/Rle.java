@@ -3,7 +3,14 @@ package com.nikita.lesson3;
 import java.time.LocalDate;
 
 public class Rle {
-    public String zip(String unzipped) {
+    public static String zip(String unzipped) {
+
+        if (unzipped==null || unzipped.isEmpty()){
+            return "";
+        }
+        if (unzipped.length() == 1) {
+            return unzipped;
+        }
 
         char[] chars = unzipped.toCharArray();
         StringBuilder result = new StringBuilder();
@@ -32,7 +39,7 @@ public class Rle {
     }
 
     // EXTRA RLE!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public String unzipped(String zip) {
+    public static String unzipped(String zip) {
         char[] chars = zip.toCharArray();
         StringBuilder resultzip = new StringBuilder();
         char pivotzip = chars[0];
@@ -59,7 +66,7 @@ public class Rle {
         String stroka = "AAAABBBRRAKADDABBBRANNNNAAAAAX";
         Rle rle = new Rle();
         System.out.println(stroka);
-        // System.out.println(rle.zip(stroka));
+        System.out.println(rle.zip(stroka));
         System.out.println(rle.unzipped(stroka));
 
     }

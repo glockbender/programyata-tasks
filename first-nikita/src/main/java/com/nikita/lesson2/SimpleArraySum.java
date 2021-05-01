@@ -3,7 +3,7 @@ package com.nikita.lesson2;
 public class SimpleArraySum {
 
     public static int simpleArraySum(int[] ar) {
-        if (ar == null) {
+        if (ar == null || ar.length==0) {
             return 0;
         }
         int sum = 0;

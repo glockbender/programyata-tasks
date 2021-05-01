@@ -22,7 +22,7 @@ public class SelectionSortTest {
         Assertions.assertArrayEquals(newArray,newCorrectArray);
 
         int [] selArray= ArrayTestUtils.generateRandom(0,99,50);
-        int [] sortArray= ArrayTestUtils.copyAndShuffle(selArray);
+        int [] sortArray= Arrays.copyOf(selArray,50);
         sSort.sort(selArray);
         Arrays.sort(sortArray);
         Assertions.assertArrayEquals(selArray,sortArray);
@@ -31,6 +31,6 @@ public class SelectionSortTest {
     @Test
     public void SelectionSorting_does_not_work_with_NULL() {
         int[] array = null;
-        new SelectionSort().sort(array);
+        sSort.sort(array);
     }
 }

@@ -5,20 +5,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int count, first, last;
-        Scanner scan = new Scanner(System.in);
-        System.out.println(" Введите необходимое количество элементов: ");
-        int num = scan.nextInt();
-        int[] array = new int[num];
-        System.out.println("Введите " + num + " чисел ");
-        for (count = 0; count < num; count++)
-            array[count] = scan.nextInt();
+        int [] array= new int[]{1,3,5,7,9,2,4,6,8};
         Arrays.sort(array);
-        System.out.println("Введите элемент для бинарного поиска: ");
-        int item = scan.nextInt();
-        first = 0;
-        last = num - 1;
-        BinarySearch.binary(array, item);
+        System.out.println(BinarySearch.binary(array,7));
+        System.out.println(BinarySearch.binary(array,1));
+        System.out.println(BinarySearch.binary(array,9));
+        System.out.println(BinarySearch.binary(array,11));
     }
 }
 

@@ -5,47 +5,41 @@ import com.nikita.lesson1.homework.binarysearch.BinarySearch;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 public class BinarySearchTest {
     BinarySearch binarySearch = new BinarySearch();
 
     @Test
     public void BinarySearch_works_correctly1() {
         int[] array = ArrayTestUtils.generate(1, 10);
-        int item = 4;
-        binarySearch.binary(array, item);
-        Assertions.assertEquals(item, 4);
+        int item = binarySearch.binary(array, 4);
+        Assertions.assertEquals(3, item);
     }
 
     @Test
     public void BinarySearch_works_correctly2() {
         int[] array = ArrayTestUtils.generate(1, 55);
-        int item = 1;
-        binarySearch.binary(array, item);
-        Assertions.assertEquals(item, 1);
+        int item = binarySearch.binary(array, 1);
+        Assertions.assertEquals(0, item);
     }
 
     @Test
     public void BinarySearch_works_correctly3() {
         int[] array = ArrayTestUtils.generate(1, 55);
-        int item = 55;
-        binarySearch.binary(array, item);
-        Assertions.assertEquals(item, 55);
+        int item = binarySearch.binary(array, 55);
+        Assertions.assertEquals(54, item);
     }
 
     @Test
-    public void BinarySearch_works_correctly_without_the_needed_element() {
+    public void BinarySearch_works_correctly4() {
         int[] array = ArrayTestUtils.generate(1, 20);
-        int element = 20;
-        binarySearch.binary(array, element);
-        Assertions.assertEquals(element, 20);
+        int item = binarySearch.binary(array, 50);
+        Assertions.assertEquals(-1, item);
     }
 
     @Test
     public void BinarySearch_does_not_work_with_NULL() {
         int[] array = null;
-        new BinarySearch().binary(array, 5);
-
+        int item = binarySearch.binary(array, 5);
+        Assertions.assertEquals(-1, item);
     }
 }
