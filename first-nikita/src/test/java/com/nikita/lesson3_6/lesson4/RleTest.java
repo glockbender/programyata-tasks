@@ -19,7 +19,7 @@ public class RleTest {
     }
     @Test
     public void Rle_works_correctly() {
-        String s = new StringTestUtils().generateStringRandom(26);
+        String s = StringTestUtils.generateStringRandom(26);
         String zipped = Rle.zip(s);
         String unzipped = Rle.unzipped(zipped);
         Assertions.assertEquals(s, unzipped);

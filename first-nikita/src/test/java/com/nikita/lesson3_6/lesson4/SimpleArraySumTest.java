@@ -5,17 +5,20 @@ import com.nikita.lesson2.SimpleArraySum;
 import org.junit.jupiter.api.Test;
 
 public class SimpleArraySumTest {
-    SimpleArraySum sAs = new SimpleArraySum();
+
 
     @Test
     public void simpleArraySum_works_correctly() {
         int[] array = ArrayTestUtils.generate(1, 15);
-        sAs.simpleArraySum(array);
+        SimpleArraySum.simpleArraySum(array);
+
+        int[] newArray= new int[]{};
+        SimpleArraySum.simpleArraySum(newArray);
     }
 
     @Test
     public void simpleArraySum_does_not_work_with_null() {
         int[] array=null;
-        sAs.simpleArraySum(array);
+        SimpleArraySum.simpleArraySum(array);
     }
 }
