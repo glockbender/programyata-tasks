@@ -2,7 +2,11 @@ package com.ruslan.lesson2.homework.rle;
 
 public class AlternatingCharacters {
 
-    static int alternatingCharacters(String s) {
+    public static int alternatingCharacters(String s) {
+
+        if (s==null || s.isEmpty()) {
+            return -1;
+        }
 
         char[] chars = s.toCharArray();
 
@@ -23,6 +27,7 @@ public class AlternatingCharacters {
     }
 
     public static void main(String[] args) {
+
         String input = "AABBAB";
         System.out.println(AlternatingCharacters.alternatingCharacters(input));
     }

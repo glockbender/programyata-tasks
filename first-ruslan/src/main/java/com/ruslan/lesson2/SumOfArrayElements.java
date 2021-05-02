@@ -2,7 +2,11 @@ package com.ruslan.lesson2;
 
 public class SumOfArrayElements {
 
-    static int simpleArraySum(int[] ar) {
+    public static int simpleArraySum(int[] ar) {
+
+        if(ar == null || ar.length == 0) {
+            return -1;
+        }
 
         int sum = 0;
 

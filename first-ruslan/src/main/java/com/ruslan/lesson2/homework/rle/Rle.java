@@ -2,7 +2,12 @@ package com.ruslan.lesson2.homework.rle;
 
 public class Rle {
 
-    public String zip(String unzipped) {
+    public static String zip(String unzipped) {
+
+        if (unzipped == null || unzipped.isEmpty()) {
+            return "";
+        }
+
 
         char[] chars = unzipped.toCharArray();
 
@@ -45,7 +50,11 @@ public class Rle {
 
     }
 
-    public String unzip(String zipped) {
+    public static String unzip(String zipped) {
+
+        if (zipped == null || zipped.isEmpty()) {
+            return "";
+        }
 
         char[] chars = zipped.toCharArray();
 
