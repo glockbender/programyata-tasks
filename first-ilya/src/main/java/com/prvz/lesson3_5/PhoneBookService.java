@@ -12,14 +12,14 @@ public interface PhoneBookService {
      * @param name имя контакта
      * @return найденный контакт или null, если не найден
      */
-    @Nullable PhoneBookContact findByName(@NotNull String name);
+    @Nullable PhoneBookContact findByFullName(@NotNull String firstName, @Nullable String lastName);
 
     /**
-     * Найти контакт по телефону
+     * Найти контакты по телефону
      * @param phone телефон для поиска
-     * @return найденный контакт или null, если не найден
+     * @return найденные контакты или пустой список, если не найдены
      */
-    @Nullable PhoneBookContact findByPhone(@NotNull String phone);
+    @NotNull Collection<PhoneBookContact> findByPhone(@NotNull String phone);
 
     Collection<PhoneBookContact> findAll();
 
