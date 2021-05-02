@@ -2,6 +2,9 @@ package com.nikita.lesson3.homework2;
 
 public class Array2D {
     public static int sumArray(int[][] array) {
+        if (array == null || array.length == 0) {
+            return -1;
+        }
         int maxSum = -63;
         for (int i = 1; i < 5; i++) {
             for (int j = 1; j < 5; j++) {
@@ -21,6 +24,7 @@ public class Array2D {
         }
         return maxSum;
     }
+
     public static void main(String[] args) {
         int[][] array = new int[][]{
             {1, 2, 3, 4, 5, 6},

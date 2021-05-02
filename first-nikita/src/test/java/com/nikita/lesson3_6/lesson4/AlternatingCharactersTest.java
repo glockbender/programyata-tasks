@@ -9,9 +9,9 @@ public class AlternatingCharactersTest {
     @Test
     public void AltenAlternatingCharacters_does_not_work_with_null_or_empty_line(){
         String s=null;
-        Assertions.assertEquals(0, AlternatingCharacters.alternatingCharacters(s));
+        Assertions.assertEquals(-1, AlternatingCharacters.alternatingCharacters(s));
 
         String newS="";
-        Assertions.assertEquals(0, AlternatingCharacters.alternatingCharacters(newS));
+        Assertions.assertEquals(-1, AlternatingCharacters.alternatingCharacters(newS));
     }
 }

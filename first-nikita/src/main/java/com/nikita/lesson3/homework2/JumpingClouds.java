@@ -1,14 +1,17 @@
 package com.nikita.lesson3.homework2;
 
 public class JumpingClouds {
-    static int jumpingOnClouds(int[] array) {
-        if (array.length == 1) {
-            return 0;
+    public static int jumpingOnClouds(int[] array) {
+        if (array == null || array.length == 0){
+            return -1;
         }
+            if (array.length == 1) {
+                return 0;
+            }
         if (array.length == 2) {
             return 1;
         }
-        int count = 0;
+        int count = 1;
         for (int i = 2; i < array.length - 1; ) {
             if (array[i] == 1) {
                 i--;
