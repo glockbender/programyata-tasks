@@ -27,9 +27,13 @@ public class BinarySearchTest {
         Assertions.assertEquals(0, result1);
 
         int[] array2 = GenerateArrayUtils.sortedArray(-99, 99);
-        int item2 = 0;
-        int result2 = bs.search(array2, item2, 0, 198);
-        Assertions.assertEquals(99, result2);
+        for (int i = 0; i < array2.length; i++) {
+
+            int item2 = array2[i];
+            int result2 = bs.search(array2, item2, 0, 198);
+            Assertions.assertEquals(i, result2);
+
+        }
 
         int[] array3 = GenerateArrayUtils.sortedArray(-99, 99);
         int item3 = 100;
