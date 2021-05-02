@@ -2,7 +2,11 @@ package com.ruslan.lesson1.homework.selectionsort;
 
 public class SelectionSort {
 
-    public static int[] sort(int[] array) {
+    public static void sort(int[] array) {
+
+        if(array == null) {
+            return;
+        }
 
         for (int i = 0; i < array.length; i++) {
             int min = array[i];
@@ -20,7 +24,6 @@ public class SelectionSort {
 
         }
 
-        return array;
     }
 
 }

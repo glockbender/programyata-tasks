@@ -1,7 +1,4 @@
-package com.prvz.lesson3_5;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+package com.ruslan.lesson3_5;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,10 +8,7 @@ public class InmemoryPhoneBookService implements PhoneBookService {
     private Collection<PhoneBookContact> contactsStorage = new ArrayList<>();
 
     @Override
-    @Nullable
-    // O(n) -> O(1) -> O(logN)
-    public PhoneBookContact findByName(@NotNull String name) {
-
+    public PhoneBookContact findByName(String name) {
         for (PhoneBookContact contact : contactsStorage) {
             if (contact.name.equals(name)) {
                 return contact;
@@ -24,10 +18,7 @@ public class InmemoryPhoneBookService implements PhoneBookService {
     }
 
     @Override
-    @Nullable
-    // O(n^2) -> O(n*logn) -> O(1)
-    public PhoneBookContact findByPhone(@NotNull String phone) {
-
+    public PhoneBookContact findByPhone(String phone) {
         for (PhoneBookContact contact : contactsStorage) {
             for (String innerPhone : contact.phones) {
                 if (innerPhone.equals(phone)) {
@@ -44,17 +35,20 @@ public class InmemoryPhoneBookService implements PhoneBookService {
     }
 
     @Override
-    public void addNewContact(PhoneBookContact contact) {
-        contactsStorage.add(contact);
+    public void addNewContact(PhoneBookContact phoneBookContact) {
+
+        contactsStorage.add(phoneBookContact);
+
     }
 
     @Override
-    public void updateContact(PhoneBookContact contact) {
-        PhoneBookContact found = findByName(contact.name);
-        if (found == null) {
+    public void updateContact(PhoneBookContact phoneBookContact) {
+        PhoneBookContact found = findByName(phoneBookContact.name);
+        if(found == null) {
             throw new ContactNotFoundException();
         }
-        found.phones = contact.phones;
-        found.comment = contact.comment;
+        found.comment = phoneBookContact.comment;
+        found.phones = phoneBookContact.phones;
+
     }
 }
