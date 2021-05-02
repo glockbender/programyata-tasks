@@ -7,6 +7,9 @@ public class Rle {
      A2B4C6D3E2LVCN4
      */
     public String zip(String unzipped) {
+        if (unzipped==null || unzipped.isEmpty()){
+            return "";
+        }
         if (unzipped.length() == 1) {
             return unzipped;
         }
@@ -36,7 +39,7 @@ public class Rle {
 
     public static void main(String[] args) {
 
-        String unzipped = "AABBBBCCCCCCDDDEELVCNNNN";
+        String unzipped = "AAAAAAABBBBRRAAAA";
         System.out.println(new Rle().zip(unzipped));
     }
 }

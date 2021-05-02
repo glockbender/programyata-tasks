@@ -12,7 +12,6 @@ public class SelectionSort {
                     min = j;
                 }
             }
-
             int temp = array[i];
             array[i] = array[min];
             array[min] = temp;

@@ -1,7 +1,11 @@
 package com.nikita.lesson3.homework;
 
 public class AlternatingCharacters {
-    static int alternatingCharacters(String s) {
+    public static int alternatingCharacters(String s) {
+        if (s == null || s.isEmpty ()) {
+            return 0;
+
+        }
         char[] chars = s.toCharArray();
         int result = 0;
         for (int i = 0; i < chars.length - 1; i++) {

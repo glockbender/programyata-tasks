@@ -2,6 +2,9 @@ package com.nikita.lesson2;
 
 public class FactorialSum {
     public static int factorialsum(int i) {
+        if(i<0){
+            throw new ArithmeticException();
+        }
         int resultal = 1;
         for (int j = 1; j <= i; j++) {
             resultal = resultal * j;
@@ -10,6 +13,6 @@ public class FactorialSum {
     }
 
     public static void main(String[] args) {
-        System.out.println(factorialsum(5));
+        System.out.println(factorialsum(-5));
     }
 }
