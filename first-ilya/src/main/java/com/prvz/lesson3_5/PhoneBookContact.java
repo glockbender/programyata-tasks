@@ -3,19 +3,23 @@ package com.prvz.lesson3_5;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 public class PhoneBookContact {
 
-    @NotNull
-    public String firstName;
+    public static final String DEFAULT_LAST_NAME = "";
 
     @NotNull
-    public String lastName;
+    private final String firstName;
 
     @NotNull
-    public Set<String> phones;
+    private final String lastName;
+
+    @NotNull
+    private final Set<String> phones;
 
     public PhoneBookContact(
         @NotNull String firstName,
@@ -23,8 +27,27 @@ public class PhoneBookContact {
         @NotNull Set<String> phones
     ) {
         this.firstName = firstName;
-        this.lastName = lastName == null ? "" : lastName;
-        this.phones = phones;
+        this.lastName = lastName == null ? DEFAULT_LAST_NAME : lastName;
+        this.phones = new HashSet<>(phones);
+    }
+
+    @NotNull
+    public String getFirstName() {
+        return firstName;
+    }
+
+    @NotNull
+    public String getLastName() {
+        return lastName;
+    }
+
+    @NotNull
+    public Set<String> getPhones() {
+        return new HashSet<>(phones);
+    }
+
+    public void addPhones(@NotNull Collection<String> phones) {
+        this.phones.addAll(phones);
     }
 
     @Override
@@ -38,6 +61,15 @@ public class PhoneBookContact {
     @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName, phones);
+    }
+
+    @Override
+    public String toString() {
+        return "PhoneBookContact{" +
+            "firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", phones=" + phones +
+            '}';
     }
 
     //
