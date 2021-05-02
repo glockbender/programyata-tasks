@@ -7,25 +7,27 @@ public class Main {
 
     public static void main(String[] args) {
 
-        PhoneBookService phoneBookService = new InmemoryPhoneBookService();
+//        PhoneBookService phoneBookService = new InmemoryPhoneBookService();
+//
+//        phoneBookService.addNewContact(
+//            new PhoneBookContact(
+//                "a",
+//                Arrays.asList("+79991112223"),
+//                "Comment"
+//            )
+//        );
+//
+//        Collection<PhoneBookContact> all = phoneBookService.findAll();
+//
+//        all.add(new PhoneBookContact(
+//            "a",
+//            Arrays.asList("+79991112223"),
+//            "Comment"
+//        ));
+//
+//        all.clear();
 
-        phoneBookService.addNewContact(
-            new PhoneBookContact(
-                "a",
-                Arrays.asList("+79991112223"),
-                "Comment"
-            )
-        );
-
-        Collection<PhoneBookContact> all = phoneBookService.findAll();
-
-        all.add(new PhoneBookContact(
-            "a",
-            Arrays.asList("+79991112223"),
-            "Comment"
-        ));
-
-        all.clear();
+        var pbc = new PhoneBookContact("Ilya", "Perevoz", Arrays.asList("123","345"));
 
     }
 

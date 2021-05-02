@@ -1,20 +1,30 @@
 package com.prvz.lesson3_5;
 
-import java.util.Collection;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.Objects;
+import java.util.Set;
 
 public class PhoneBookContact {
 
-    public String name;
+    @NotNull
+    public String firstName;
 
-    public Collection<String> phones;
+    @NotNull
+    public String lastName;
 
-    public String comment;
+    @NotNull
+    public Set<String> phones;
 
-    public PhoneBookContact(String name, Collection<String> phones, String comment) {
-        this.name = name;
+    public PhoneBookContact(
+        @NotNull String firstName,
+        @Nullable String lastName,
+        @NotNull Set<String> phones
+    ) {
+        this.firstName = firstName;
+        this.lastName = lastName == null ? "" : lastName;
         this.phones = phones;
-        this.comment = comment;
     }
 
     @Override
@@ -22,12 +32,12 @@ public class PhoneBookContact {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PhoneBookContact that = (PhoneBookContact) o;
-        return name.equals(that.name) && phones.equals(that.phones) && comment.equals(that.comment);
+        return firstName.equals(that.firstName) && Objects.equals(lastName, that.lastName) && phones.equals(that.phones);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, phones, comment);
+        return Objects.hash(firstName, lastName, phones);
     }
 
     //
