@@ -14,7 +14,7 @@ public class InmemoryPhoneBookService implements PhoneBookService {
 
     @Override
     @Nullable
-    // O(n) -> O(1) -> O(logN)
+    // O(1)
     public PhoneBookContact findByFullName(@NotNull String firstName, @Nullable String lastName) {
         String fullName = firstName + (lastName == null ? "" : lastName);
         return nameToContactMap.get(fullName);
