@@ -2,12 +2,12 @@ package com.nikita.lesson3.homework2;
 
 public class JumpingClouds {
     public static int jumpingOnClouds(int[] array) {
-        if (array == null || array.length == 0){
-            return -1;
+        if (array == null || array.length == 0) {
+            return 0;
         }
-            if (array.length == 1) {
-                return 0;
-            }
+        if (array.length == 1) {
+            return 0;
+        }
         if (array.length == 2) {
             return 1;
         }
