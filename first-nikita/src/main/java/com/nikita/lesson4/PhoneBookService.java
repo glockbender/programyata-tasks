@@ -5,9 +5,9 @@ import java.util.Collection;
 public interface PhoneBookService {
     Contact findByName(String name);
 
-    Contact findByPhone(String phone);
+    Collection<PhoneBookContact> findByPhone(String phone);
 
-    Collection<Contact> findAll();
+    Collection<PhoneBookContact> findAll();
 
     void addNewContact(Contact contact);
 
