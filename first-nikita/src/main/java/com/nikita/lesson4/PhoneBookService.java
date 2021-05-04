@@ -3,6 +3,8 @@ package com.nikita.lesson4;
 import java.util.Collection;
 
 public interface PhoneBookService {
+    PhoneBookContact findByFullName(String firstName, String lastName);
+
     Contact findByName(String name);
 
     Collection<PhoneBookContact> findByPhone(String phone);
