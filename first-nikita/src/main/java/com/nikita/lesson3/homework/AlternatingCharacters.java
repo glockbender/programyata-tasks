@@ -3,7 +3,7 @@ package com.nikita.lesson3.homework;
 public class AlternatingCharacters {
     public static int alternatingCharacters(String s) {
         if (s == null || s.isEmpty ()) {
-            return 0;
+            return -1;
 
         }
         char[] chars = s.toCharArray();
