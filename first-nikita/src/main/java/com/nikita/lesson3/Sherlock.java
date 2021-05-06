@@ -89,7 +89,7 @@ public class Sherlock {
             }
         }
         int counterDifference = 0;
-        for (int i = 0; i < repeatElements.length; i++) {
+        for (int i = 0; i < repeatElements.length - 1; i++) {
             if (repeatElements[i] != repeatElements[i + 1]) {
                 counterDifference++;
             }
@@ -98,11 +98,8 @@ public class Sherlock {
         if (counterDifference == 0) {
             return true;
         }
-        //(1112
-        if (counterDifference == 1) {
-            return true;
-        }
-        //(3555)
+
+//        (3555)
         if (counterDifference > 1) {
             return false;
         }
@@ -119,6 +116,10 @@ public class Sherlock {
     }
 
     public static String sherlock(String unsorted) {
+        if( unsorted.isEmpty()){
+            return "";
+        }
+
 
         String sortString = sortMas(unsorted);
         System.out.println(sortString);
@@ -136,7 +137,7 @@ public class Sherlock {
     }
 
     public static void main(String[] args) {
-        String string = "abbcc";
-        System.out.println(sherlock(string));
+        String string = "aaabbbdddefffhhhjjj";
+        System.out.println("Подходит ли данная строка : " + sherlock(string));
     }
 }
