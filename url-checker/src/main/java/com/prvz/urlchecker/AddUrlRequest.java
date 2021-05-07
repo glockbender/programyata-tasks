@@ -11,16 +11,16 @@ public class AddUrlRequest {
     public final String url;
     public final Integer periodMinutes;
     @Nullable
-    public final OffsetDateTime startAt;
+    public final OffsetDateTime nextCheckAt;
 
     @JsonCreator
     public AddUrlRequest(
         @JsonProperty("url") String url,
         @JsonProperty("periodMinutes") Integer periodMinutes,
-        @JsonProperty("startAt") @Nullable OffsetDateTime startAt
+        @JsonProperty("nextCheckAt") @Nullable OffsetDateTime nextCheckAt
     ) {
         this.url = url;
         this.periodMinutes = periodMinutes;
-        this.startAt = startAt;
+        this.nextCheckAt = nextCheckAt;
     }
 }

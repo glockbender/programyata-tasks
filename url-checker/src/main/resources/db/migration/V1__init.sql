@@ -2,9 +2,8 @@ CREATE TABLE urls
 (
     url           TEXT PRIMARY KEY,
     periodMinutes INTEGER                  NOT NULL DEFAULT 1,
-    startAt       TIMESTAMP WITH TIME ZONE NOT NULL,
+    nextCheckAt   TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
     createdAt     TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()
---     lastCheckedAt TIMESTAMP NOT NULL
 );
 
 CREATE TABLE urls_checks

@@ -6,11 +6,11 @@ public class AddUrlResponse {
 
     public final String url;
     public final Integer periodMinutes;
-    public final OffsetDateTime startAt;
+    public final OffsetDateTime nextCheckAt;
 
-    public AddUrlResponse(String url, Integer periodMinutes, OffsetDateTime startAt) {
+    public AddUrlResponse(String url, Integer periodMinutes, OffsetDateTime nextCheckAt) {
         this.url = url;
         this.periodMinutes = periodMinutes;
-        this.startAt = startAt;
+        this.nextCheckAt = nextCheckAt;
     }
 }

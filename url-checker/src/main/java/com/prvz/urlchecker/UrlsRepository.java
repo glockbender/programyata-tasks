@@ -4,7 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,13 +18,29 @@ import java.util.List;
 
 public class UrlsRepository {
 
-    public static final String INSERT_SQL = "INSERT INTO urls (url, periodMinutes, startAt) VALUES (?, ?, ?)";
+    public static final String INSERT_SQL = "INSERT INTO urls (url, periodMinutes, nextCheckAt) VALUES (?, ?, ?)";
     public static final String SELECT_ALL_SQL = "SELECT * FROM urls ORDER BY created_at DESC FETCH FIRST ? ROWS ONLY";
+    public static final String SELECT_BY_NEXT_CHECK_AT_BEFORE = "SELECT * FROM urls WHERE nextCheckAt < ? ORDER BY nextCheckAt ASC";
     private static final Logger logger = LoggerFactory.getLogger(UrlsRepository.class);
     private final DataSource dataSource;
 
     public UrlsRepository(DataSource dataSource) {
         this.dataSource = dataSource;
+    }
+
+    public List<AddUrlResponse> findAllByNextCheckAtBefore(OffsetDateTime nextCheckAtBefore) {
+        try (
+            Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(SELECT_BY_NEXT_CHECK_AT_BEFORE);
+        ) {
+
+            statement.setObject(1, nextCheckAtBefore);
+            ResultSet rs = statement.executeQuery();
+            return resultSetToResponseList(rs);
+
+        } catch (SQLException sqlEx) {
+            return null;
+        }
     }
 
     public List<AddUrlResponse> findAllOrderedByCreatedAt(int limit) {
@@ -31,28 +49,9 @@ public class UrlsRepository {
             PreparedStatement statement = connection.prepareStatement(SELECT_ALL_SQL);
         ) {
 
+            statement.setInt(1, limit);
             ResultSet rs = statement.executeQuery();
-
-            if (rs.getFetchSize() == 0) {
-                return Collections.emptyList();
-            }
-
-            List<AddUrlResponse> result = new ArrayList<>(limit);
-
-            while (rs.next()) {
-                int parameterIndex = 1;
-                String url = rs.getString(parameterIndex++);
-                Integer periodMinutes = rs.getInt(parameterIndex++);
-                OffsetDateTime startAt = rs.getObject(parameterIndex++, OffsetDateTime.class);
-                AddUrlResponse response = new AddUrlResponse(
-                    url,
-                    periodMinutes,
-                    startAt
-                );
-                result.add(response);
-            }
-
-            return result;
+            return resultSetToResponseList(rs);
 
         } catch (SQLException sqlEx) {
             return null;
@@ -61,11 +60,14 @@ public class UrlsRepository {
 
     public boolean addUrl(AddUrlRequest request) {
 
-        URI uri;
+        URL url;
         try {
-            uri = URI.create(request.url);
+            url = new URL(request.url);
         } catch (IllegalArgumentException iae) {
             logger.error("Cannot parse url", iae);
+            return false;
+        } catch (MalformedURLException e) {
+            logger.error("Incorrect url", e);
             return false;
         }
 
@@ -76,16 +78,16 @@ public class UrlsRepository {
 
             int parameterIndex = 1;
 
-            statement.setString(parameterIndex++, uri.getHost() + uri.getPath());
+            statement.setString(parameterIndex++, url.getHost() + url.getPath());
             statement.setInt(parameterIndex++, request.periodMinutes);
 
-            OffsetDateTime startAt;
-            if (request.startAt != null) {
-                startAt = request.startAt;
+            OffsetDateTime nextCheckAt;
+            if (request.nextCheckAt != null) {
+                nextCheckAt = request.nextCheckAt;
             } else {
-                startAt = OffsetDateTime.now().plusSeconds(60);
+                nextCheckAt = OffsetDateTime.now().plusMinutes(request.periodMinutes);
             }
-            statement.setObject(parameterIndex++, startAt);
+            statement.setObject(parameterIndex++, nextCheckAt);
 
             int updated = statement.executeUpdate();
 
@@ -99,5 +101,29 @@ public class UrlsRepository {
             return false;
         }
         return true;
+    }
+
+    private List<AddUrlResponse> resultSetToResponseList(ResultSet rs) throws SQLException {
+
+        if (rs.getFetchSize() == 0) {
+            return Collections.emptyList();
+        }
+
+        List<AddUrlResponse> result = new ArrayList<>();
+
+        while (rs.next()) {
+            int parameterIndex = 1;
+            String url = rs.getString(parameterIndex++);
+            Integer periodMinutes = rs.getInt(parameterIndex++);
+            OffsetDateTime nextCheckAt = rs.getObject(parameterIndex++, OffsetDateTime.class);
+            AddUrlResponse response = new AddUrlResponse(
+                url,
+                periodMinutes,
+                nextCheckAt
+            );
+            result.add(response);
+        }
+
+        return result;
     }
 }
