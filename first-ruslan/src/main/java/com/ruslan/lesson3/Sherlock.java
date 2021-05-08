@@ -1,5 +1,7 @@
 package com.ruslan.lesson3;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 
 public class Sherlock {
@@ -18,100 +20,116 @@ public class Sherlock {
 
     }
 
-    public static String zip(String unzipped) {
+    public static int uniqueChars(String sorted) {
 
-        char[] chars = unzipped.toCharArray();
+        int uniqueElements = 1;
 
-        StringBuilder zipped = new StringBuilder();
+        char[] chars = sorted.toCharArray();
 
-        char pivot = chars[0];
+        for (int i = 0; i < chars.length - 1; i++) {
+            if (chars[i] != chars[i + 1]) {
+                uniqueElements++;
+            }
+        }
+
+        return uniqueElements;
+
+    }
+
+    public static int[] numbersOfUniqueChars(int uniqueElements, String sorted) {
+
+        int[] repeatsOAE = new int[uniqueElements];
+
+        char[] chars = sorted.toCharArray();
+
+        int counter = 1;
+        int indexOfIntArr = 0;
+
+        for (int i = 0; i < chars.length - 1; i++) {
+            if (chars[i] == chars[i + 1]) {
+                counter++;
+            } else {
+                repeatsOAE[indexOfIntArr] = counter;
+                indexOfIntArr++;
+                counter = 1;
+            }
+        }
+
+        repeatsOAE[indexOfIntArr] = counter;
+
+        Arrays.sort(repeatsOAE);
+
+        return repeatsOAE;
+
+    }
+
+    public static boolean stringValidator(int[] repeatsOAE) {
+
+        boolean answer = false;
+
+        if (repeatsOAE.length == 1) {
+            return true;
+        }
+        if (repeatsOAE.length == 2) {
+            return Math.abs(repeatsOAE[1] - repeatsOAE[0]) == 1 || Math.abs(repeatsOAE[1] - repeatsOAE[0]) == 0;
+        }
+
+        int counterOfDiffers = 0;
+
+        for (int i = 0; i < repeatsOAE.length - 1; i++) {
+            if (repeatsOAE[i] != repeatsOAE[i + 1]) {
+                counterOfDiffers++;
+            }
+        }
+        if (counterOfDiffers == 0) {
+            return true;
+        }
+        if (counterOfDiffers > 1) {
+            return false;
+        }
 
         int counter = 1;
 
-        if (chars.length == 1) {
-            counter = 1;
-            zipped.append(counter);
-        }
-
-        for (int i = 1; i < chars.length; i++) {
-
-            char current = chars[i];
-
-            if (current == pivot) {
-
+        for (int j = 0; j < repeatsOAE.length - 1; j++) {
+            if (repeatsOAE[j] == repeatsOAE[j+1]) {
                 counter++;
-
-            } else {
-                zipped.append(counter);
-                counter = 1;
-
-            }
-            pivot = current;
-
-            if (i == chars.length - 1) {
-
-                zipped.append(counter);
-
-            }
-
-
+            } else
+                break;
         }
 
-        return zipped.toString();
+        answer = (repeatsOAE.length - counter == 1 && repeatsOAE[repeatsOAE.length-1] - repeatsOAE[repeatsOAE.length-2] == 1) || (repeatsOAE[0] == 1 && counter == 1);
+
+        return answer;
+
     }
 
+    public static String sherlock(@NotNull String unsorted) {
+
+        if(unsorted.isEmpty()){
+            return "string is Empty";
+        }
+
+        String sorted = sort(unsorted);
+
+
+        int uniqueElements = uniqueChars(sorted);
+
+
+        int[] repeatsOAE = numbersOfUniqueChars(uniqueElements, sorted);
+
+        if (stringValidator(repeatsOAE)) {
+            return "YES";
+        } else {
+            return "NO";
+        }
+    }
 
     public static void main(String[] args) {
-        String str = "abbac";
-        String sorted = Sherlock.sort(str);
-        String zipped = Sherlock.zip(sorted);
-        String sortedZipped = Sherlock.sort(zipped);
 
-        System.out.println(sorted);
-        System.out.println(zipped);
-        System.out.println(sortedZipped);
-
-        char[] chars = sortedZipped.toCharArray();
-
-        int counter = 0;
-        int pivot = chars[0];
-
-
-        for (int i = 0; i < chars.length; i++) {
-
-            char current = chars[i];
-
-            if (current != pivot) {
-
-                counter++;
-
-            }
-
-            pivot = current;
-
-
-            if (i == chars.length - 1) {
-
-                System.out.println(counter);
-
-            }
-
-        }
-
-        if (counter > 1) {
-            System.out.println("NO");
-        } else if (chars.length <= 1) {
-            System.out.println("YES");
-        } else if (counter == 0) {
-            System.out.println("YES");
-        } else if (chars[0] == chars[1] & chars[chars.length - 1] == chars[chars.length - 2] & counter > 0) {
-            System.out.println("NO");
-        } else if (chars[0] == '1' | chars[chars.length - 1] - chars[chars.length - 2] == 1) {
-            System.out.println("YES");
-        } else {
-            System.out.println("NO");
-        }
+        String unsorted = "null";
+        System.out.println("Are this string valid? " + sherlock(unsorted));
 
     }
 
 }
+

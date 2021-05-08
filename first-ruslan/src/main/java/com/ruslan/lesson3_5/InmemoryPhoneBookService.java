@@ -10,7 +10,7 @@ public class InmemoryPhoneBookService implements PhoneBookService {
     @Override
     public PhoneBookContact findByName(String name) {
         for (PhoneBookContact contact : contactsStorage) {
-            if (contact.name.equals(name)) {
+            if (contact.firstName.equals(name)) {
                 return contact;
             }
         }
@@ -43,11 +43,11 @@ public class InmemoryPhoneBookService implements PhoneBookService {
 
     @Override
     public void updateContact(PhoneBookContact phoneBookContact) {
-        PhoneBookContact found = findByName(phoneBookContact.name);
+        PhoneBookContact found = findByName(phoneBookContact.firstName);
         if(found == null) {
             throw new ContactNotFoundException();
         }
-        found.comment = phoneBookContact.comment;
+        found.firstName = phoneBookContact.firstName;
         found.phones = phoneBookContact.phones;
 
     }

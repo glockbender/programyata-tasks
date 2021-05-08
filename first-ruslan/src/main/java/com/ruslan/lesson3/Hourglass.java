@@ -4,6 +4,26 @@ public class Hourglass {
 
     public static int hourglass(int[][] array) {
 
+        if(array == null) {
+            return -65;
+        }
+        if (array.length != 6) {
+            return -65;
+        }
+        for (int k = 0; k < array.length-1; k++) {
+            if (array[k].length !=6) {
+                return -65;
+            }
+        }
+
+        for (int a = 0; a < 5; a++) {
+            for (int b = 0; b < 5; b++) {
+                if(array[a][b] > 9 || array[a][b] <-9) {
+                    return -65;
+                }
+            }
+
+        }
 
         int resultSum = -65;
 
