@@ -22,9 +22,11 @@
 2. [Бесплатный курс по SQL на Stepik](https://stepik.org/course/63054/promo) 
 
 #### GIT
-1. [Git. Большой практический выпуск](https://www.youtube.com/watch?v=SEvR78OhGtw)
-2. [Шпаргалка Git от Github.com](https://github.github.com/training-kit/downloads/ru/github-git-cheat-sheet/)
-3. [Как (и для чего) использовать систему контроля версий git](https://www.youtube.com/watch?v=wvqiGJu3YmQ&list=PLsQAG1V_t58Cd5Anx_wJ7-KIzCA8SPOa1)
+1. [Интерактивная обучалка по GIT](https://learngitbranching.js.org/?locale=ru_RU) 
+*Один из самых простых и удобных способов разобраться с основами GIT'а*
+3. [Git. Большой практический выпуск](https://www.youtube.com/watch?v=SEvR78OhGtw)
+4. [Шпаргалка Git от Github.com](https://github.github.com/training-kit/downloads/ru/github-git-cheat-sheet/)
+5. [Как (и для чего) использовать систему контроля версий git](https://www.youtube.com/watch?v=wvqiGJu3YmQ&list=PLsQAG1V_t58Cd5Anx_wJ7-KIzCA8SPOa1)
 
 #### DOCKER
 1. [Основы Docker. Большой практический выпуск](https://www.youtube.com/watch?v=QF4ZF857m44)
