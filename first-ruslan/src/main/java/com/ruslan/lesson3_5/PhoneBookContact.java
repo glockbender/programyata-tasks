@@ -1,19 +1,45 @@
 package com.ruslan.lesson3_5;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.Collection;
+import java.util.Objects;
+import java.util.Set;
 
 public class PhoneBookContact {
 
-    String name;
+    private static final String EMPTY_STRING = "";
 
-    Collection<String> phones;
+    @NotNull
+    public String firstName;
 
-    String comment;
+    @NotNull
+    public String lastName;
 
-    public PhoneBookContact(String name, Collection<String> phones, String comment) {
-        this.name = name;
-        this.phones = phones;
-        this.comment = comment;
+    @NotNull
+    public Set<String> phones;
+
+    public PhoneBookContact(@NotNull String firstName, @Nullable String lastName, @NotNull Collection<String> phones) {
+        this.firstName = firstName;
+        this.lastName = lastName == null ? EMPTY_STRING : lastName;
+       // this.lastName = Objects.requireNonNullElse(lastName, "");
+        this.phones = (Set<String>) phones;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PhoneBookContact that = (PhoneBookContact) o;
+        return firstName.equals(that.firstName) &&
+            lastName.equals(that.lastName) &&
+            phones.equals(that.phones);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, phones);
     }
 
 }
